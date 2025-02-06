@@ -1,4 +1,4 @@
-Temple Website
+Temple Site
 
 This is a React-based website for a temple, providing visitors with information about temple activities, events, and services.
 
@@ -32,11 +32,11 @@ Installation
 
 Clone the repository:
 
-git clone https://github.com/your-username/temple-website.git
+git clone https://github.com/vengatavaradhanp/temple-site.git
 
 Navigate to the project directory:
 
-cd temple-website
+cd temple-site
 
 Install dependencies:
 
