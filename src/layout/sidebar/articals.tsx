@@ -21,7 +21,7 @@ const Articals = () => {
 
 
   return (
-    <div>
+    <div className="homebannerImages">
       <div className="row mt-5">
         <div className="col-lg-8 articlebg bgImg bgText animated bounceInLeft">
           <h2>{tittledata}</h2>
@@ -29,7 +29,7 @@ const Articals = () => {
             <div className="articleImg">
               <img src={item.media} />
 
-              <h4 style={{textAlign:'center'}}>{item.title}</h4>
+              <h4 style={{ textAlign: "center" }}>{item.title}</h4>
               <div className="truncate-text">{item.body}</div>
 
               <Link key={index} to={`/articals/${item.id}`}>

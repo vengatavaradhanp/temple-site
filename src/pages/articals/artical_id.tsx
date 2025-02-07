@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { AppDispatch, RootState } from "../../_main/store";
 import { useDispatch, useSelector } from "react-redux";
-import Header from "../../layout/header/header";
-import Footer from "../../layout/footer/footer";
+// import Header from "../../layout/header/header";
+// import Footer from "../../layout/footer/footer";
 import { EventParams } from "../../types/types";
 import { useParams } from "react-router-dom";
 import Loader from "../../components/loader";
 import { articalsbyID } from "../../services/articalsGetbyid";
-import Tittle from "../../layout/tittle/tittle";
+// import Tittle from "../../layout/tittle/tittle";
 
 const ArticalsId = () => {
   const { id } = useParams<EventParams>();
@@ -29,17 +29,20 @@ const ArticalsId = () => {
 
   return (
     <>
-    <Tittle/>
-      <Header />
-      <div className="container-fluid">
+      {/* <Tittle/>
+      <Header /> */}
+      <div className="homebannerImages container-fluid">
         {loading ? (
-        <Loader/>
+          <Loader />
         ) : (
           <>
             <div className="row god">
               <div className="col-lg-12">
                 <div className="eventsbgclassName">
-                  <img src={articalsiddata?.media} alt={articalsiddata?.title || "Event"} />
+                  <img
+                    src={articalsiddata?.media}
+                    alt={articalsiddata?.title || "Event"}
+                  />
                 </div>
               </div>
             </div>
@@ -62,7 +65,7 @@ const ArticalsId = () => {
           </>
         )}
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

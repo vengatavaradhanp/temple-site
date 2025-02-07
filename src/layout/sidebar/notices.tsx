@@ -25,7 +25,7 @@ const Notices = () => {
     dispatch(noticeContent());
   }, [dispatch]);
   return (
-    <div className="row mt-5 showClass" id="targetElement">
+    <div className="homebannerImages row mt-5 showClass" id="targetElement">
       {/* {noticedata.map((item:Notice)=>( */}
       <div
         style={{
@@ -50,49 +50,51 @@ const Notices = () => {
             )}
           </div>
           <div className="col-lg-6 col-md-6 col-12 animated  fadeInDownBig">
-           {object2&& <div className="showRow">
-              <div className="showTitle">
-                <h4>{object2?.title}</h4>
-              </div>
-              <div className="showContent">
-                <p>{object2?.body}</p>
-              </div>
+            {object2 && (
+              <div className="showRow">
+                <div className="showTitle">
+                  <h4>{object2?.title}</h4>
+                </div>
+                <div className="showContent">
+                  <p>{object2?.body}</p>
+                </div>
 
-              <div className="row bankDetails">
-                <div className="col-lg-8">
-                  <div style={{ fontWeight: "bold" }}>
-                    {" "}
-                    Bank Name:{" "}
-                    <span style={{ fontWeight: "normal" }}>
-                      {bankName}
-                    </span>{" "}
+                <div className="row bankDetails">
+                  <div className="col-lg-8">
+                    <div style={{ fontWeight: "bold" }}>
+                      {" "}
+                      Bank Name:{" "}
+                      <span style={{ fontWeight: "normal" }}>
+                        {bankName}
+                      </span>{" "}
+                    </div>
+                    <div style={{ fontWeight: "bold" }}>
+                      ACCOUNT NO :
+                      <span style={{ fontWeight: "normal" }}>
+                        {accountNumber}
+                      </span>
+                    </div>
+                    <div style={{ fontWeight: "bold" }}>
+                      {" "}
+                      IFSC CODE :
+                      <span style={{ fontWeight: "normal" }}>
+                        {ifscCode}
+                      </span>{" "}
+                    </div>
                   </div>
-                  <div style={{ fontWeight: "bold" }}>
-                    ACCOUNT NO :
-                    <span style={{ fontWeight: "normal" }}>
-                      {accountNumber}
-                    </span>
+                  <div className="col-lg-4">
+                    <img src={object2?.filepath} />
                   </div>
-                  <div style={{ fontWeight: "bold" }}>
-                    {" "}
-                    IFSC CODE :
-                    <span style={{ fontWeight: "normal" }}>
-                      {ifscCode}
-                    </span>{" "}
-                  </div>
-                </div>
-                <div className="col-lg-4">
-                  <img src={object2?.filepath} />
-                </div>
-                {/* <div className="col-lg-4">
+                  {/* <div className="col-lg-4">
                   <Link 
                                           to={`/donation`}
                                           >
                                             Show More
                                           </Link>
                 </div> */}
+                </div>
               </div>
-            </div>}
+            )}
           </div>
         </div>
       </div>

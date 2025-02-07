@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { AppDispatch, RootState } from "../../_main/store";
 import { useDispatch, useSelector } from "react-redux";
 import { contactDetails } from "../../services/contactContent";
-import Header from "../../layout/header/header";
-import Footer from "../../layout/footer/footer";
+// import Header from "../../layout/header/header";
+// import Footer from "../../layout/footer/footer";
 import { Notice } from "../../types/types";
 import UserImage from "../../assets/profile-circle.svg";
 import Loader from "../../components/loader";
-import Tittle from "../../layout/tittle/tittle";
+// import Tittle from "../../layout/tittle/tittle";
 
 const Contact = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -25,11 +25,11 @@ const Contact = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <Tittle/>
-      <Header />
+    <div className="homebannerImages">
+      {/* <Tittle/> */}
+      {/* <Header /> */}
       {loading ? (
-<Loader />
+        <Loader />
       ) : (
         <div className="container-fluid">
           <div className="mt-5">
@@ -52,7 +52,7 @@ const Contact = () => {
           </div>
         </div>
       )}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

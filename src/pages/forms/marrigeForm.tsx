@@ -1,8 +1,8 @@
 import React, { useState, useRef, ChangeEvent, FormEvent } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Tittle from "../../layout/tittle/tittle";
-import Header from "../../layout/header/header";
-import Footer from "../../layout/footer/footer";
+// import Tittle from "../../layout/tittle/tittle";
+// import Header from "../../layout/header/header";
+// import Footer from "../../layout/footer/footer";
 
 // Define the type for form data
 interface FormData {
@@ -143,331 +143,472 @@ const RegistrationForm: React.FunctionComponent = () => {
 
   return (
     <>
-    <Tittle/>
-    <Header/>
-    <div className="container">
-      <form id="registrationForm" onSubmit={handleSubmit} noValidate ref={formRef}>
-        <div className="form-group full-width" style={{ width: "50%", marginLeft: "auto", marginRight: "auto" }}>
-          <label htmlFor="event">Select Event:</label>
-          <select
-            id="event"
-            name="event"
-            // className={`form-control ${validationErrors.event ? "is-invalid" : ""}`}
-            className={`form-control custom-select ${validationErrors.event ? "is-invalid" : ""}`}
-            value={event}
-            onChange={showFields}
-    
-            required
+      {/* <Tittle/> */}
+      {/* <Header/> */}
+      <div className="homebannerImages container">
+        <form
+          id="registrationForm"
+          onSubmit={handleSubmit}
+          noValidate
+          ref={formRef}
+        >
+          <div
+            className="form-group full-width"
+            style={{ width: "50%", marginLeft: "auto", marginRight: "auto" }}
           >
-            <option value="">Select Event</option>
-            <option value="marrige">Marriage</option>
-            <option value="Engagement">Engagement</option>
-            <option value="birthday">Birthday</option>
-            <option value="Anniversary">Anniversary</option>
-          </select>
-          {validationErrors.event && <div className="invalid-feedback">{validationErrors.event}</div>}
-        </div>
-
-        {(event === "marrige" || event === "Engagement" || event === "Anniversary") && (
-          <div id="marrigeFields" className="form-grid" style={{ width: "50%", marginLeft: "auto", marginRight: "auto" }}>
-            <div className="row">
-              <div className="col-md-6 form-group">
-                <label htmlFor="date">Date:</label>
-                <input
-                  type="date"
-                  id="date"
-                  name="date"
-                  className={`form-control ${validationErrors.date ? "is-invalid" : ""}`}
-                  value={formData.date}
-                  onChange={handleInputChange}
-                  required
-                />
-                {validationErrors.date && <div className="invalid-feedback">{validationErrors.date}</div>}
-              </div>
-              <div className="col-md-6 form-group">
-                <label htmlFor="time">Time:</label>
-                <input
-                  type="time"
-                  id="time"
-                  name="time"
-                  className={`form-control ${validationErrors.time ? "is-invalid" : ""}`}
-                  value={formData.time}
-                  onChange={handleInputChange}
-                  required
-                />
-                {validationErrors.time && <div className="invalid-feedback">{validationErrors.time}</div>}
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-md-6 form-group">
-                <label htmlFor="brideName">Bride Name:</label>
-                <input
-                  type="text"
-                  id="brideName"
-                  name="brideName"
-                  className={`form-control ${validationErrors.brideName ? "is-invalid" : ""}`}
-                  value={formData.brideName}
-                  onChange={handleInputChange}
-                  required
-                />
-                {validationErrors.brideName && <div className="invalid-feedback">{validationErrors.brideName}</div>}
-              </div>
-              <div className="col-md-6 form-group">
-                <label htmlFor="groomName">Groom Name:</label>
-                <input
-                  type="text"
-                  id="groomName"
-                  name="groomName"
-                  className={`form-control ${validationErrors.groomName ? "is-invalid" : ""}`}
-                  value={formData.groomName}
-                  onChange={handleInputChange}
-                  required
-                />
-                {validationErrors.groomName && <div className="invalid-feedback">{validationErrors.groomName}</div>}
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-md-6 form-group">
-                <label htmlFor="brideAadhar">Bride Aadhar:</label>
-                <input
-                  type="file"
-                  id="brideAadhar"
-                  name="brideAadhar"
-                  className={`form-control ${validationErrors.brideAadhar ? "is-invalid" : ""}`}
-                  onChange={handleInputChange}
-                  required
-                />
-                {validationErrors.brideAadhar && <div className="invalid-feedback">{validationErrors.brideAadhar}</div>}
-              </div>
-              <div className="col-md-6 form-group">
-                <label htmlFor="groomAadhar">Groom Aadhar:</label>
-                <input
-                  type="file"
-                  id="groomAadhar"
-                  name="groomAadhar"
-                  className={`form-control ${validationErrors.groomAadhar ? "is-invalid" : ""}`}
-                  onChange={handleInputChange}
-                  required
-                />
-                {validationErrors.groomAadhar && <div className="invalid-feedback">{validationErrors.groomAadhar}</div>}
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-md-6 form-group">
-                <label htmlFor="registerName">Register Name:</label>
-                <input
-                  type="text"
-                  id="registerName"
-                  name="registerName"
-                  className={`form-control ${validationErrors.registerName ? "is-invalid" : ""}`}
-                  value={formData.registerName}
-                  onChange={handleInputChange}
-                  required
-                />
-                {validationErrors.registerName && <div className="invalid-feedback">{validationErrors.registerName}</div>}
-              </div>
-              <div className="col-md-6 form-group">
-                <label htmlFor="registerPhone">Register Phone Number:</label>
-                <input
-                  type="tel"
-                  id="registerPhone"
-                  name="registerPhone"
-                  className={`form-control ${validationErrors.registerPhone ? "is-invalid" : ""}`}
-                  value={formData.registerPhone}
-                  onChange={handleInputChange}
-                  required
-                />
-                {validationErrors.registerPhone && <div className="invalid-feedback">{validationErrors.registerPhone}</div>}
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-md-6 form-group">
-                <label htmlFor="alternatePhone">Alternate Phone Number:</label>
-                <input
-                  type="tel"
-                  id="alternatePhone"
-                  name="alternatePhone"
-                  className="form-control"
-                  value={formData.alternatePhone}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className="col-md-6 form-group">
-                <label htmlFor="HallName">Hall Name:</label>
-                <input
-                  type="text"
-                  id="HallName"
-                  name="HallName"
-                  className={`form-control ${validationErrors.HallName ? "is-invalid" : ""}`}
-                  value={formData.HallName}
-                  onChange={handleInputChange}
-                  required
-                />
-                {validationErrors.HallName && <div className="invalid-feedback">{validationErrors.HallName}</div>}
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-md-6 form-group">
-                <label htmlFor="TokenNumber">Token Number:</label>
-                <input
-                  type="text"
-                  id="TokenNumber"
-                  name="TokenNumber"
-                  className={`form-control ${validationErrors.TokenNumber ? "is-invalid" : ""}`}
-                  value={formData.TokenNumber}
-                  onChange={handleInputChange}
-                  required
-                />
-                {validationErrors.TokenNumber && <div className="invalid-feedback">{validationErrors.TokenNumber}</div>}
-              </div>
-              <div className="col-md-6 form-group">
-                <label htmlFor="IyyerName">Iyyer Name:</label>
-                <input
-                  type="text"
-                  id="IyyerName"
-                  name="IyyerName"
-                  className={`form-control ${validationErrors.IyyerName ? "is-invalid" : ""}`}
-                  value={formData.IyyerName}
-                  onChange={handleInputChange}
-                  required
-                />
-                {validationErrors.IyyerName && <div className="invalid-feedback">{validationErrors.IyyerName}</div>}
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-md-12 form-group text-center">
-                <button type="submit" className="btn btn-primary" style={{ background: "#44233B" }}>
-                  Submit
-                </button>
-              </div>
-            </div>
+            <label htmlFor="event">Select Event:</label>
+            <select
+              id="event"
+              name="event"
+              // className={`form-control ${validationErrors.event ? "is-invalid" : ""}`}
+              className={`form-control custom-select ${
+                validationErrors.event ? "is-invalid" : ""
+              }`}
+              value={event}
+              onChange={showFields}
+              required
+            >
+              <option value="">Select Event</option>
+              <option value="marrige">Marriage</option>
+              <option value="Engagement">Engagement</option>
+              <option value="birthday">Birthday</option>
+              <option value="Anniversary">Anniversary</option>
+            </select>
+            {validationErrors.event && (
+              <div className="invalid-feedback">{validationErrors.event}</div>
+            )}
           </div>
-        )}
 
-        {event === "birthday" && (
-          <div id="birthdayFields" className="form-grid" style={{ width: "50%", marginLeft: "auto", marginRight: "auto" }}>
-            <div className="row">
-              <div className="col-md-6 form-group">
-                <label htmlFor="birthdayDate">Birthday Date:</label>
-                <input
-                  type="date"
-                  id="birthdayDate"
-                  name="birthdayDate"
-                  className={`form-control ${validationErrors.birthdayDate ? "is-invalid" : ""}`}
-                  value={formData.birthdayDate}
-                  onChange={handleInputChange}
-                  required
-                />
-                {validationErrors.birthdayDate && <div className="invalid-feedback">{validationErrors.birthdayDate}</div>}
+          {(event === "marrige" ||
+            event === "Engagement" ||
+            event === "Anniversary") && (
+            <div
+              id="marrigeFields"
+              className="form-grid"
+              style={{ width: "50%", marginLeft: "auto", marginRight: "auto" }}
+            >
+              <div className="row">
+                <div className="col-md-6 form-group">
+                  <label htmlFor="date">Date:</label>
+                  <input
+                    type="date"
+                    id="date"
+                    name="date"
+                    className={`form-control ${
+                      validationErrors.date ? "is-invalid" : ""
+                    }`}
+                    value={formData.date}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  {validationErrors.date && (
+                    <div className="invalid-feedback">
+                      {validationErrors.date}
+                    </div>
+                  )}
+                </div>
+                <div className="col-md-6 form-group">
+                  <label htmlFor="time">Time:</label>
+                  <input
+                    type="time"
+                    id="time"
+                    name="time"
+                    className={`form-control ${
+                      validationErrors.time ? "is-invalid" : ""
+                    }`}
+                    value={formData.time}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  {validationErrors.time && (
+                    <div className="invalid-feedback">
+                      {validationErrors.time}
+                    </div>
+                  )}
+                </div>
               </div>
-              <div className="col-md-6 form-group">
-                <label htmlFor="birthdayTime">Birthday Time:</label>
-                <input
-                  type="time"
-                  id="birthdayTime"
-                  name="birthdayTime"
-                  className={`form-control ${validationErrors.birthdayTime ? "is-invalid" : ""}`}
-                  value={formData.birthdayTime}
-                  onChange={handleInputChange}
-                  required
-                />
-                {validationErrors.birthdayTime && <div className="invalid-feedback">{validationErrors.birthdayTime}</div>}
+              <div className="row">
+                <div className="col-md-6 form-group">
+                  <label htmlFor="brideName">Bride Name:</label>
+                  <input
+                    type="text"
+                    id="brideName"
+                    name="brideName"
+                    className={`form-control ${
+                      validationErrors.brideName ? "is-invalid" : ""
+                    }`}
+                    value={formData.brideName}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  {validationErrors.brideName && (
+                    <div className="invalid-feedback">
+                      {validationErrors.brideName}
+                    </div>
+                  )}
+                </div>
+                <div className="col-md-6 form-group">
+                  <label htmlFor="groomName">Groom Name:</label>
+                  <input
+                    type="text"
+                    id="groomName"
+                    name="groomName"
+                    className={`form-control ${
+                      validationErrors.groomName ? "is-invalid" : ""
+                    }`}
+                    value={formData.groomName}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  {validationErrors.groomName && (
+                    <div className="invalid-feedback">
+                      {validationErrors.groomName}
+                    </div>
+                  )}
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-md-6 form-group">
+                  <label htmlFor="brideAadhar">Bride Aadhar:</label>
+                  <input
+                    type="file"
+                    id="brideAadhar"
+                    name="brideAadhar"
+                    className={`form-control ${
+                      validationErrors.brideAadhar ? "is-invalid" : ""
+                    }`}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  {validationErrors.brideAadhar && (
+                    <div className="invalid-feedback">
+                      {validationErrors.brideAadhar}
+                    </div>
+                  )}
+                </div>
+                <div className="col-md-6 form-group">
+                  <label htmlFor="groomAadhar">Groom Aadhar:</label>
+                  <input
+                    type="file"
+                    id="groomAadhar"
+                    name="groomAadhar"
+                    className={`form-control ${
+                      validationErrors.groomAadhar ? "is-invalid" : ""
+                    }`}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  {validationErrors.groomAadhar && (
+                    <div className="invalid-feedback">
+                      {validationErrors.groomAadhar}
+                    </div>
+                  )}
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-md-6 form-group">
+                  <label htmlFor="registerName">Register Name:</label>
+                  <input
+                    type="text"
+                    id="registerName"
+                    name="registerName"
+                    className={`form-control ${
+                      validationErrors.registerName ? "is-invalid" : ""
+                    }`}
+                    value={formData.registerName}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  {validationErrors.registerName && (
+                    <div className="invalid-feedback">
+                      {validationErrors.registerName}
+                    </div>
+                  )}
+                </div>
+                <div className="col-md-6 form-group">
+                  <label htmlFor="registerPhone">Register Phone Number:</label>
+                  <input
+                    type="tel"
+                    id="registerPhone"
+                    name="registerPhone"
+                    className={`form-control ${
+                      validationErrors.registerPhone ? "is-invalid" : ""
+                    }`}
+                    value={formData.registerPhone}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  {validationErrors.registerPhone && (
+                    <div className="invalid-feedback">
+                      {validationErrors.registerPhone}
+                    </div>
+                  )}
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-md-6 form-group">
+                  <label htmlFor="alternatePhone">
+                    Alternate Phone Number:
+                  </label>
+                  <input
+                    type="tel"
+                    id="alternatePhone"
+                    name="alternatePhone"
+                    className="form-control"
+                    value={formData.alternatePhone}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="col-md-6 form-group">
+                  <label htmlFor="HallName">Hall Name:</label>
+                  <input
+                    type="text"
+                    id="HallName"
+                    name="HallName"
+                    className={`form-control ${
+                      validationErrors.HallName ? "is-invalid" : ""
+                    }`}
+                    value={formData.HallName}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  {validationErrors.HallName && (
+                    <div className="invalid-feedback">
+                      {validationErrors.HallName}
+                    </div>
+                  )}
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-md-6 form-group">
+                  <label htmlFor="TokenNumber">Token Number:</label>
+                  <input
+                    type="text"
+                    id="TokenNumber"
+                    name="TokenNumber"
+                    className={`form-control ${
+                      validationErrors.TokenNumber ? "is-invalid" : ""
+                    }`}
+                    value={formData.TokenNumber}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  {validationErrors.TokenNumber && (
+                    <div className="invalid-feedback">
+                      {validationErrors.TokenNumber}
+                    </div>
+                  )}
+                </div>
+                <div className="col-md-6 form-group">
+                  <label htmlFor="IyyerName">Iyyer Name:</label>
+                  <input
+                    type="text"
+                    id="IyyerName"
+                    name="IyyerName"
+                    className={`form-control ${
+                      validationErrors.IyyerName ? "is-invalid" : ""
+                    }`}
+                    value={formData.IyyerName}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  {validationErrors.IyyerName && (
+                    <div className="invalid-feedback">
+                      {validationErrors.IyyerName}
+                    </div>
+                  )}
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-md-12 form-group text-center">
+                  <button
+                    type="submit"
+                    className="btn btn-primary"
+                    style={{ background: "#44233B" }}
+                  >
+                    Submit
+                  </button>
+                </div>
               </div>
             </div>
-            <div className="row">
-              <div className="col-md-6 form-group">
-                <label htmlFor="birthdayName">Birthday Person Name:</label>
-                <input
-                  type="text"
-                  id="birthdayName"
-                  name="birthdayName"
-                  className={`form-control ${validationErrors.birthdayName ? "is-invalid" : ""}`}
-                  value={formData.birthdayName}
-                  onChange={handleInputChange}
-                  required
-                />
-                {validationErrors.birthdayName && <div className="invalid-feedback">{validationErrors.birthdayName}</div>}
+          )}
+
+          {event === "birthday" && (
+            <div
+              id="birthdayFields"
+              className="form-grid"
+              style={{ width: "50%", marginLeft: "auto", marginRight: "auto" }}
+            >
+              <div className="row">
+                <div className="col-md-6 form-group">
+                  <label htmlFor="birthdayDate">Birthday Date:</label>
+                  <input
+                    type="date"
+                    id="birthdayDate"
+                    name="birthdayDate"
+                    className={`form-control ${
+                      validationErrors.birthdayDate ? "is-invalid" : ""
+                    }`}
+                    value={formData.birthdayDate}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  {validationErrors.birthdayDate && (
+                    <div className="invalid-feedback">
+                      {validationErrors.birthdayDate}
+                    </div>
+                  )}
+                </div>
+                <div className="col-md-6 form-group">
+                  <label htmlFor="birthdayTime">Birthday Time:</label>
+                  <input
+                    type="time"
+                    id="birthdayTime"
+                    name="birthdayTime"
+                    className={`form-control ${
+                      validationErrors.birthdayTime ? "is-invalid" : ""
+                    }`}
+                    value={formData.birthdayTime}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  {validationErrors.birthdayTime && (
+                    <div className="invalid-feedback">
+                      {validationErrors.birthdayTime}
+                    </div>
+                  )}
+                </div>
               </div>
-              <div className="col-md-6 form-group">
-                <label htmlFor="registerName">Register Name:</label>
-                <input
-                  type="text"
-                  id="registerName"
-                  name="registerName"
-                  className={`form-control ${validationErrors.registerName ? "is-invalid" : ""}`}
-                  value={formData.registerName}
-                  onChange={handleInputChange}
-                  required
-                />
-                {validationErrors.registerName && <div className="invalid-feedback">{validationErrors.registerName}</div>}
+              <div className="row">
+                <div className="col-md-6 form-group">
+                  <label htmlFor="birthdayName">Birthday Person Name:</label>
+                  <input
+                    type="text"
+                    id="birthdayName"
+                    name="birthdayName"
+                    className={`form-control ${
+                      validationErrors.birthdayName ? "is-invalid" : ""
+                    }`}
+                    value={formData.birthdayName}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  {validationErrors.birthdayName && (
+                    <div className="invalid-feedback">
+                      {validationErrors.birthdayName}
+                    </div>
+                  )}
+                </div>
+                <div className="col-md-6 form-group">
+                  <label htmlFor="registerName">Register Name:</label>
+                  <input
+                    type="text"
+                    id="registerName"
+                    name="registerName"
+                    className={`form-control ${
+                      validationErrors.registerName ? "is-invalid" : ""
+                    }`}
+                    value={formData.registerName}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  {validationErrors.registerName && (
+                    <div className="invalid-feedback">
+                      {validationErrors.registerName}
+                    </div>
+                  )}
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-md-6 form-group">
+                  <label htmlFor="registerPhone">Register Phone Number:</label>
+                  <input
+                    type="tel"
+                    id="registerPhone"
+                    name="registerPhone"
+                    className={`form-control ${
+                      validationErrors.registerPhone ? "is-invalid" : ""
+                    }`}
+                    value={formData.registerPhone}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  {validationErrors.registerPhone && (
+                    <div className="invalid-feedback">
+                      {validationErrors.registerPhone}
+                    </div>
+                  )}
+                </div>
+                <div className="col-md-6 form-group">
+                  <label htmlFor="alternatePhone">
+                    Alternate Phone Number:
+                  </label>
+                  <input
+                    type="tel"
+                    id="alternatePhone"
+                    name="alternatePhone"
+                    className="form-control"
+                    value={formData.alternatePhone}
+                    onChange={handleInputChange}
+                  />
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-md-6 form-group">
+                  <label htmlFor="HallName">Hall Name:</label>
+                  <input
+                    type="text"
+                    id="HallName"
+                    name="HallName"
+                    className={`form-control ${
+                      validationErrors.HallName ? "is-invalid" : ""
+                    }`}
+                    value={formData.HallName}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  {validationErrors.HallName && (
+                    <div className="invalid-feedback">
+                      {validationErrors.HallName}
+                    </div>
+                  )}
+                </div>
+                <div className="col-md-6 form-group">
+                  <label htmlFor="TokenNumber">Token Number:</label>
+                  <input
+                    type="text"
+                    id="TokenNumber"
+                    name="TokenNumber"
+                    className={`form-control ${
+                      validationErrors.TokenNumber ? "is-invalid" : ""
+                    }`}
+                    value={formData.TokenNumber}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  {validationErrors.TokenNumber && (
+                    <div className="invalid-feedback">
+                      {validationErrors.TokenNumber}
+                    </div>
+                  )}
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-md-12 form-group text-center">
+                  <button
+                    type="submit"
+                    className="btn btn-primary"
+                    style={{ background: "#44233B" }}
+                  >
+                    Submit
+                  </button>
+                </div>
               </div>
             </div>
-            <div className="row">
-              <div className="col-md-6 form-group">
-                <label htmlFor="registerPhone">Register Phone Number:</label>
-                <input
-                  type="tel"
-                  id="registerPhone"
-                  name="registerPhone"
-                  className={`form-control ${validationErrors.registerPhone ? "is-invalid" : ""}`}
-                  value={formData.registerPhone}
-                  onChange={handleInputChange}
-                  required
-                />
-                {validationErrors.registerPhone && <div className="invalid-feedback">{validationErrors.registerPhone}</div>}
-              </div>
-              <div className="col-md-6 form-group">
-                <label htmlFor="alternatePhone">Alternate Phone Number:</label>
-                <input
-                  type="tel"
-                  id="alternatePhone"
-                  name="alternatePhone"
-                  className="form-control"
-                  value={formData.alternatePhone}
-                  onChange={handleInputChange}
-                />
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-md-6 form-group">
-                <label htmlFor="HallName">Hall Name:</label>
-                <input
-                  type="text"
-                  id="HallName"
-                  name="HallName"
-                  className={`form-control ${validationErrors.HallName ? "is-invalid" : ""}`}
-                  value={formData.HallName}
-                  onChange={handleInputChange}
-                  required
-                />
-                {validationErrors.HallName && <div className="invalid-feedback">{validationErrors.HallName}</div>}
-              </div>
-              <div className="col-md-6 form-group">
-                <label htmlFor="TokenNumber">Token Number:</label>
-                <input
-                  type="text"
-                  id="TokenNumber"
-                  name="TokenNumber"
-                  className={`form-control ${validationErrors.TokenNumber ? "is-invalid" : ""}`}
-                  value={formData.TokenNumber}
-                  onChange={handleInputChange}
-                  required
-                />
-                {validationErrors.TokenNumber && <div className="invalid-feedback">{validationErrors.TokenNumber}</div>}
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-md-12 form-group text-center">
-                <button type="submit" className="btn btn-primary" style={{ background: "#44233B" }}>
-                  Submit
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
-      </form>
-    </div>
-    <Footer/>
+          )}
+        </form>
+      </div>
+      {/* <Footer/> */}
     </>
   );
 };

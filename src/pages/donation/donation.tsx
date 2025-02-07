@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Header from "../../layout/header/header";
-import Footer from "../../layout/footer/footer";
+// import Header from "../../layout/header/header";
+// import Footer from "../../layout/footer/footer";
 import { AppDispatch, RootState } from "../../_main/store";
 import { useDispatch, useSelector } from "react-redux";
 import { donation } from "../../services/donation";
@@ -24,8 +24,8 @@ const Donation = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <Header />
+    <div className="homebannerImages">
+      {/* <Header /> */}
       {loading ? (
         <Loader />
       ) : (
@@ -57,7 +57,7 @@ const Donation = () => {
           </div>
         ))
       )}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

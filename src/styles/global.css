@@ -33,6 +33,10 @@ figure iframe {
 .row {
     margin: 0;
 }
+.homebannerImages {
+    width: 80%;
+    margin: 0 auto;
+}
 .eventsclassName img {
     height: 300px;
     width: 100%;
@@ -318,7 +322,7 @@ ul.dropdown {
     flex-wrap: wrap;
 }
 .adminPhoto img {
-    width: 250px;
+    /* width: 250px; */
     margin-top: 10px;
     margin-bottom: 30px;
     border-radius: 10px;
@@ -330,7 +334,7 @@ ul.dropdown {
     border: 1px solid #e3dfdf;
     margin: 30px;
     padding: 30px;
-    width: 350px;
+    /* width: 350px; */
     border-radius: 10px;
 }
 /*END FOOTER SOCIAL DESIGN*/
@@ -529,8 +533,7 @@ ul.dropdown {
      margin-right: 10px;
 }
  .navbar-nav .nav-item .nav-link:hover {
-     transform: translateX(10px);
-    /* Hover effect with a transform */
+     transform: translateX(10px); 
 }
  .navbar-nav .nav-item .nav-link::before {
      content: '';
@@ -652,4 +655,10 @@ width: '100%';
 
 .textParaLine::first-letter {
     font-size: 2.5em;
+}
+.arting img {
+    height: 600px;
+}
+.articleImg.artImages {
+    height: 100%;
 }

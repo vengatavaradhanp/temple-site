@@ -1,5 +1,5 @@
-import Footer from "../../layout/footer/footer";
-import Header from "../../layout/header/header";
+// import Footer from "../../layout/footer/footer";
+// import Header from "../../layout/header/header";
 import Eventsbg from "../../assets/eventsbg.jpg";
 import "../../styles/global.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,7 +9,7 @@ import { eventContent } from "../../services/eventContent";
 import { Article } from "../../types/types";
 import { Link } from "react-router-dom";
 import Loader from "../../components/loader";
-import Tittle from "../../layout/tittle/tittle";
+// import Tittle from "../../layout/tittle/tittle";
 
 const Events = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -28,11 +28,11 @@ const Events = () => {
 
   return (
     <div>
-      <Tittle/>
-      <Header />
-      <div className="container-fluid">
+      {/* <Tittle/> */}
+      {/* <Header /> */}
+      <div className=" container-fluid">
         {loading ? (
-         <Loader/>
+          <Loader />
         ) : (
           <>
             <div className="row god">
@@ -58,7 +58,7 @@ const Events = () => {
           </>
         )}
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

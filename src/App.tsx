@@ -1,11 +1,10 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import 'animate.css';
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Home from './pages/home/home';
-import Events from './pages/events/events';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "animate.css";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Home from "./pages/home/home";
 import NotFound from './pages/error/error';
 import { NOTICE_ROUTE, BASE_ROUTE, EVENT_ROUTE,CONTACT_ROUTE, VIDEOS_ROUTE, HISTORY_ROUTE,PHOTO_ROUTE, DONATION_ROUTE, EVENTID_ROUTE, ANANDHANAM_ROUTE, ARTICALS_ROUTE, KATTADAM_ROUTE, CONTACTSEVA_ROUTE, DEVIGAL_ROUTE, TEMPLEARC_ROUTE, MANDAPAM_ROUTE, KALVETTU_ROUTE,HALL_ROUTE, GOPURAM_ROUTE, ADMIN_ROUTE, FORMS_ROUTE, POOJAI1, POOJAI2 } from './_main/routeConstant';
 import Notices from './layout/sidebar/notices';
@@ -29,39 +28,49 @@ import Hall from './pages/hall/index';
 import Forms from './pages/forms/marrigeForm';
 import Poojai1 from './pages/poojai1/poojai1';
 import Poojai2 from './pages/poojai2/poojai2';
+import Tittle from "../src/layout/tittle/tittle";
+import Header from "../src/layout/header/header";
+import Footer from "../src/layout/footer/footer";
+import Events from "./pages/events/events";
 
 const App: React.FC = () => {
   // const isAuthenticated = false; // Replace with your authentication logic
 
   return (
-    <Router>
-      <Switch>
-        <Route exact path={BASE_ROUTE} component={Home} />
-        <Route path={EVENT_ROUTE} component={Events} />
-        <Route path={NOTICE_ROUTE} component={Notices} />
-        <Route path={VIDEOS_ROUTE} component={Videos} />
-        <Route path={HISTORY_ROUTE} component={History} />
-        <Route path={CONTACT_ROUTE} component={Contact} />
-        <Route path={PHOTO_ROUTE} component={Photo} />
-        <Route path={DONATION_ROUTE} component={Donation} />
-        <Route path={ANANDHANAM_ROUTE} component={Anandhanam} />
-        <Route path={POOJAI1} component={Poojai1} />
-        <Route path={POOJAI2} component={Poojai2} />
-        <Route path={ARTICALS_ROUTE} component={ArticalId} />
-        <Route path={EVENTID_ROUTE} component={EventId} />
-        <Route path={KATTADAM_ROUTE} component={Kattanam} />
-        <Route path={CONTACTSEVA_ROUTE} component={ContactSeva} />
-        <Route path={DEVIGAL_ROUTE} component={Devigal} />
-        <Route path={TEMPLEARC_ROUTE} component={TempleArchi} />
-        <Route path={MANDAPAM_ROUTE} component={Mandapam} />
-        <Route path={KALVETTU_ROUTE} component={Kalvettu} />
-        <Route path={GOPURAM_ROUTE} component={Gopuram} />
-        <Route path={ADMIN_ROUTE} component={Admin} />
-        <Route path={HALL_ROUTE} component={Hall} />
-        <Route path={FORMS_ROUTE} component={Forms} />
-        <Route render={() => <NotFound/>} />
-      </Switch>
-    </Router>
+    <>
+     
+      <BrowserRouter>
+        <Tittle />
+        <Header />
+        <Routes>
+          <Route path={BASE_ROUTE} element={<Home />}/>
+          <Route path={EVENT_ROUTE} element={<Events/>} />
+          <Route path={NOTICE_ROUTE} element={<Notices/>} />
+          <Route path={VIDEOS_ROUTE} element={<Videos/>} />
+          <Route path={HISTORY_ROUTE} element={<History/>} />
+          <Route path={CONTACT_ROUTE} element={<Contact/>} />
+          <Route path={PHOTO_ROUTE} element={<Photo/>} />
+          <Route path={DONATION_ROUTE} element={<Donation/>} />
+          <Route path={ANANDHANAM_ROUTE} element={<Anandhanam/>} />
+          <Route path={POOJAI1} element={<Poojai1/>} />
+          <Route path={POOJAI2} element={<Poojai2/>} />
+          <Route path={ARTICALS_ROUTE} element={<ArticalId/>} />
+          <Route path={EVENTID_ROUTE} element={<EventId/>} />
+          <Route path={KATTADAM_ROUTE} element={<Kattanam/>} />
+          <Route path={CONTACTSEVA_ROUTE} element={<ContactSeva/>} />
+          <Route path={DEVIGAL_ROUTE} element={<Devigal/>} />
+          <Route path={TEMPLEARC_ROUTE} element={<TempleArchi/>} />
+          <Route path={MANDAPAM_ROUTE} element={<Mandapam/>} />
+          <Route path={KALVETTU_ROUTE} element={<Kalvettu/>} />
+          <Route path={GOPURAM_ROUTE} element={<Gopuram/>} />
+          <Route path={ADMIN_ROUTE} element={<Admin/>} />
+          <Route path={HALL_ROUTE} element={<Hall/>} />
+          <Route path={FORMS_ROUTE} element={<Forms/>} />
+          <Route path="*" element={<NotFound />}/>
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </>
   );
 };
 
