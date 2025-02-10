@@ -9,19 +9,22 @@ import { eventbyID } from "../../services/eventGetbyid";
 import Loader from "../../components/loader";
 // import Tittle from "../../layout/tittle/tittle";
 import "../../styles/global.css";
+import BreadcrumbComponent from "../../components/common/Breadcrumb";
 
 const EventId = () => {
   const { id } = useParams<EventParams>();
-console.log('id',id)
+  console.log("id", id);
   const dispatch: AppDispatch = useDispatch();
-  const eventiddata = useSelector((state: RootState) => state.eventid.data.event);
+  const eventiddata = useSelector(
+    (state: RootState) => state.eventid.data.event
+  );
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchEventData = async () => {
-      setLoading(true); 
+      setLoading(true);
       await dispatch(eventbyID(id));
-      setLoading(false);  
+      setLoading(false);
     };
 
     fetchEventData();
@@ -29,13 +32,15 @@ console.log('id',id)
 
   return (
     <>
-      {/* <Tittle/> */}
-      {/* <Header /> */}
-      <div className="container-fluid">
+      <div
+        className="homebannerImages container-fluid"
+        style={{ marginTop: "30px" }}
+      >
         {loading ? (
           <Loader />
         ) : (
           <>
+            <BreadcrumbComponent page="ஆலய சேவைகள்" sub="தைப்பூசம்" />
             <div className=" row god">
               <div className="col-lg-12">
                 <div className="eventsbgclassName">
@@ -48,7 +53,7 @@ console.log('id',id)
             </div>
             <div className="row mt-5">
               <div className="col-lg-12">
-                <div style={{minHeight: "150px"}}>
+                <div style={{ minHeight: "150px" }}>
                   <h2
                     style={{
                       textAlign: "center",
@@ -60,12 +65,16 @@ console.log('id',id)
                   </h2>
                   <div
                     style={{
-                      margin: "5em",
                       display: "flex",
                       justifyContent: "center",
                     }}
                   >
-                    <p className="textParaLine" style={{textAlign: "justify"}}>{eventiddata?.body}</p>
+                    <p
+                      className="textParaLine"
+                      style={{ textAlign: "justify" }}
+                    >
+                      {eventiddata?.body}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -73,10 +82,8 @@ console.log('id',id)
           </>
         )}
       </div>
-      {/* <Footer /> */}
     </>
   );
 };
 
 export default EventId;
-

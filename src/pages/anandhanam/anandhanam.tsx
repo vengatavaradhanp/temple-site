@@ -10,6 +10,7 @@ import Loader from "../../components/loader";
 // import  from "../../layout//";
 import { Notice } from "../../types/types";
 import { anandhanam } from "../../services/anandhanam";
+import BreadcrumbComponent from "../../components/common/Breadcrumb";
 // import {eventContent} from "../../services/eventContent";
 
 
@@ -39,6 +40,7 @@ const Anandhanam = () => {
           ) : (
             anandhanamdata.map((item: Notice) => (
               <div className="container-fluid" key={item?.id}>
+                <BreadcrumbComponent page="சேவைகள்" sub="அன்னதானம் " />
                 <div className="row god">
                   <div className="col-lg-12">
                     <div className="eventsbgclassName">

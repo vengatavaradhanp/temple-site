@@ -7,18 +7,19 @@ import { contactDetails } from "../../services/contactContent";
 import { Notice } from "../../types/types";
 import UserImage from "../../assets/profile-circle.svg";
 import Loader from "../../components/loader";
+import BreadcrumbComponent from "../../components/common/Breadcrumb";
 // import Tittle from "../../layout/tittle/tittle";
 
 const Contact = () => {
   const dispatch: AppDispatch = useDispatch();
   const contactdata = useSelector((state: RootState) => state.contact.data);
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true); 
-      await dispatch(contactDetails('management'));
-      setLoading(false); 
+      setLoading(true);
+      await dispatch(contactDetails("management"));
+      setLoading(false);
     };
 
     fetchData();
@@ -26,8 +27,7 @@ const Contact = () => {
 
   return (
     <div className="homebannerImages">
-      {/* <Tittle/> */}
-      {/* <Header /> */}
+      <BreadcrumbComponent page="நிர்வாகிகள்" sub="ஆலய நிர்வாகி " />
       {loading ? (
         <Loader />
       ) : (
@@ -58,4 +58,3 @@ const Contact = () => {
 };
 
 export default Contact;
-

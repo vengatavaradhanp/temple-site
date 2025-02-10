@@ -7,6 +7,7 @@ import { contactDetails } from "../../services/contactContent";
 import { Notice } from "../../types/types";
 import UserImage from "../../assets/profile-circle.svg";
 import Loader from "../../components/loader";
+import BreadcrumbComponent from "../../components/common/Breadcrumb";
 // import Tittle from "../../layout/tittle/tittle";
 
 const Contact = () => {
@@ -26,8 +27,7 @@ const Contact = () => {
 
   return (
     <div className="homebannerImages">
-      {/* <Tittle/> */}
-      {/* <Header /> */}
+      <BreadcrumbComponent page="நிர்வாகிகள்" sub="திருப்பனி குழு" />
       {loading ? (
         <Loader />
       ) : (

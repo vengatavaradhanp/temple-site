@@ -8,6 +8,7 @@ import Loader from "../../components/loader";
 // import Tittle from "../../layout/tittle/tittle";
 import {photoContent} from "../../services/photoContent";
 import { useParams } from "react-router-dom";
+import BreadcrumbComponent from "../../components/common/Breadcrumb";
 
 const Photo = () => {
  const { photo} = useParams<EventParams>();
@@ -29,8 +30,7 @@ console.log('photo',photo)
 
   return (
     <div className="homebannerImages">
-      {/* <Tittle/>
-      <Header /> */}
+      <BreadcrumbComponent page="தொகுப்புக்கள்" sub="கடந்த வருடம் " />
       {loading ? (
         <Loader />
       ) : (

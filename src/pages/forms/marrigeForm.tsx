@@ -1,5 +1,6 @@
 import React, { useState, useRef, ChangeEvent, FormEvent } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import BreadcrumbComponent from "../../components/common/Breadcrumb";
 // import Tittle from "../../layout/tittle/tittle";
 // import Header from "../../layout/header/header";
 // import Footer from "../../layout/footer/footer";
@@ -146,6 +147,7 @@ const RegistrationForm: React.FunctionComponent = () => {
       {/* <Tittle/> */}
       {/* <Header/> */}
       <div className="homebannerImages container">
+        <BreadcrumbComponent page="ஆலய முன்பதிவு" sub="விண்ணப்பங்கள்" />
         <form
           id="registrationForm"
           onSubmit={handleSubmit}
@@ -156,7 +158,7 @@ const RegistrationForm: React.FunctionComponent = () => {
             className="form-group full-width"
             style={{ width: "50%", marginLeft: "auto", marginRight: "auto" }}
           >
-            <label htmlFor="event">Select Event:</label>
+            <label htmlFor="event">நிகழ்வைத் தேர்ந்தெடுக்கவும்:</label>
             <select
               id="event"
               name="event"
@@ -168,11 +170,11 @@ const RegistrationForm: React.FunctionComponent = () => {
               onChange={showFields}
               required
             >
-              <option value="">Select Event</option>
-              <option value="marrige">Marriage</option>
-              <option value="Engagement">Engagement</option>
-              <option value="birthday">Birthday</option>
-              <option value="Anniversary">Anniversary</option>
+              <option value="">நிகழ்வைத் தேர்ந்தெடுக்கவும்</option>
+              <option value="marrige">திருமணம்</option>
+              <option value="Engagement">நிச்சயதார்த்தம்</option>
+              <option value="birthday">பிறந்தநாள்</option>
+              <option value="Anniversary">ஆண்டுவிழா</option>
             </select>
             {validationErrors.event && (
               <div className="invalid-feedback">{validationErrors.event}</div>

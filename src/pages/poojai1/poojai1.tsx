@@ -10,6 +10,7 @@ import Loader from "../../components/loader";
 // import Tittle from "../../layout/tittle/tittle";
 import { Notice } from "../../types/types";
 import { anandhanam } from "../../services/anandhanam";
+import BreadcrumbComponent from "../../components/common/Breadcrumb";
 // import {eventContent} from "../../services/eventContent";
 
 
@@ -32,8 +33,7 @@ const Poojai1 = () => {
 
     return (
       <div className="homebannerImages">
-        {/* <Tittle />
-      <Header /> */}
+        <BreadcrumbComponent page="சேவைகள்" sub="பூஜை + பிரசாதம் " />
         {loading ? (
           <Loader />
         ) : (

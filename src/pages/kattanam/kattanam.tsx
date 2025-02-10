@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { contactDetails } from "../../services/contactContent";
 import { Article } from '../../types/types';
 import CommonService from '../../utils/common';
+import BreadcrumbComponent from '../../components/common/Breadcrumb';
 // import Tittle from '../../layout/tittle/tittle';
 // import Header from '../../layout/header/header';
 // import Footer from '../../layout/footer/footer';
@@ -34,8 +35,12 @@ const Index = () => {
           </div>
         </div>
       </div> */}
-       <div>
-        <div className="homebannerImages row my-5">
+      <div>
+        <div className="homebannerImages row">
+          <BreadcrumbComponent
+            page="ஆன்மிக சேவையாளர்கள்"
+            sub="கட்டணக்காரர்கள்"
+          />
           <div className="row">
             <div className="col-lg-12 border-0 bgImg bgText animated bounceInLeft arting">
               <div className="row">
@@ -85,7 +90,7 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </div> 
+      </div>
     </>
   );
 }

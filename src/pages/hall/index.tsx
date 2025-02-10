@@ -40,13 +40,13 @@ const Index = () => {
     //     </div>
     //   ))}
     // </div>
-    <div className="homebannerImages row my-5">
+    <div className="homebannerImages row">
       <div className="row">
         <div className="col-lg-12 border-0 bgImg bgText animated bounceInLeft arting">
           <BreadcrumbComponent page="தல வரலாறு" sub="மண்டபங்கள் & சிற்பங்கள்" />
           <div className="row">
             {halldata.map((item: Article, index: number) => (
-              <div className="col-6" style={{ padding: "20px" }}>
+              <div className="col-6" style={{ padding: "10px" }}>
                 <div
                   style={{
                     boxShadow:

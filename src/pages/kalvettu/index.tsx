@@ -25,7 +25,7 @@ const Index = () => {
 
   return (
     <div>
-      <div className="homebannerImages row my-5">
+      <div className="homebannerImages row">
         <div className="row">
           <div className="col-lg-12 border-0 bgImg bgText animated bounceInLeft arting">
             <BreadcrumbComponent page="தல வரலாறு" sub="கல்வெட்டுகள்" />

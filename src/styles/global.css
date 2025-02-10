@@ -66,6 +66,7 @@ figure iframe {
     position: relative;
     text-decoration: none;
   transition-duration: 0.5s;
+  cursor: pointer;
 }
 #collapsibleNavbar ul li ul {
     /* background: #4050b5; */
@@ -650,7 +651,7 @@ width: '100%';
     width: 100%;
 }
 .textParaLine {
-    text-indent: 30em;
+    text-indent: 10em;
     line-height: 2em;
 }
 

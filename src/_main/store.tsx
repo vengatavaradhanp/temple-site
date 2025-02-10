@@ -15,26 +15,28 @@ import ArticalIDReducer from '../services/articalsGetbyid';
 import kalvettuReducer from '../services/kalvettuContent';
 import photoReducer from '../services/photoContent';
 import AnandhanamReducer from '../services/anandhanam';
+import historyDetails from '../services/historyDetailsSlice';
 // import gopuramContent from '../services/gopuramContent';
 
 export const store = configureStore({
   reducer: {
     homebanner: HomeBannerReducer,
     videos: VideosReducer,
-    event:EventReducer,
-    notice:NoticeReducer,
-    articals:ArticalsReducer,
-    allvideos :AllvideosReducer,
-    history:HistoryReducer,
-    contact:ContactReducer,
-    footer:FooterReducer,
-    header:HeaderReducer,
-    eventid:EventIDReducer,
-    articalid:ArticalIDReducer,
-    donation:DonationReducer,
-    kalvettu:kalvettuReducer,
-    photo:photoReducer,
-    anandhanam:AnandhanamReducer,
+    event: EventReducer,
+    notice: NoticeReducer,
+    articals: ArticalsReducer,
+    allvideos: AllvideosReducer,
+    history: HistoryReducer,
+    contact: ContactReducer,
+    footer: FooterReducer,
+    header: HeaderReducer,
+    eventid: EventIDReducer,
+    articalid: ArticalIDReducer,
+    donation: DonationReducer,
+    kalvettu: kalvettuReducer,
+    photo: photoReducer,
+    anandhanam: AnandhanamReducer,
+    historyDetails: historyDetails,
     // gopuram:gopuramContent,
   },
 });

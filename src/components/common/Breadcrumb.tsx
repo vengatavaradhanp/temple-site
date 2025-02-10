@@ -3,7 +3,7 @@ import React from "react";
 
 const BreadcrumbComponent = (props) => {
   return (
-    <div>
+    <div className="mt-4">
       <nav>
         <ol className="breadcrumb">
           <li className="breadcrumb-item">
