@@ -49,7 +49,7 @@ const Events = () => {
                   <div className="eventsclassName">
                     <img src={item.media} alt={item.title || "Event"} />
                     <h3 style={{ marginTop: "0.5em" }}>{item.title}</h3>
-                    <div className="truncate-text">{item.body}</div>
+                    <div className="truncate-text" >{item.body}</div>
                     <Link to={`/events/${item.id}`}>கண்டறியவும்</Link>
                   </div>
                 </div>

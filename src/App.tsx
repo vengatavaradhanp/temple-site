@@ -32,41 +32,42 @@ import Tittle from "../src/layout/tittle/tittle";
 import Header from "../src/layout/header/header";
 import Footer from "../src/layout/footer/footer";
 import Events from "./pages/events/events";
+import HistoryDetailsComponent from "./components/history-details";
 
 const App: React.FC = () => {
   // const isAuthenticated = false; // Replace with your authentication logic
 
   return (
     <>
-     
       <BrowserRouter>
         <Tittle />
         <Header />
         <Routes>
-          <Route path={BASE_ROUTE} element={<Home />}/>
-          <Route path={EVENT_ROUTE} element={<Events/>} />
-          <Route path={NOTICE_ROUTE} element={<Notices/>} />
-          <Route path={VIDEOS_ROUTE} element={<Videos/>} />
-          <Route path={HISTORY_ROUTE} element={<History/>} />
-          <Route path={CONTACT_ROUTE} element={<Contact/>} />
-          <Route path={PHOTO_ROUTE} element={<Photo/>} />
-          <Route path={DONATION_ROUTE} element={<Donation/>} />
-          <Route path={ANANDHANAM_ROUTE} element={<Anandhanam/>} />
-          <Route path={POOJAI1} element={<Poojai1/>} />
-          <Route path={POOJAI2} element={<Poojai2/>} />
-          <Route path={ARTICALS_ROUTE} element={<ArticalId/>} />
-          <Route path={EVENTID_ROUTE} element={<EventId/>} />
-          <Route path={KATTADAM_ROUTE} element={<Kattanam/>} />
-          <Route path={CONTACTSEVA_ROUTE} element={<ContactSeva/>} />
-          <Route path={DEVIGAL_ROUTE} element={<Devigal/>} />
-          <Route path={TEMPLEARC_ROUTE} element={<TempleArchi/>} />
-          <Route path={MANDAPAM_ROUTE} element={<Mandapam/>} />
-          <Route path={KALVETTU_ROUTE} element={<Kalvettu/>} />
-          <Route path={GOPURAM_ROUTE} element={<Gopuram/>} />
-          <Route path={ADMIN_ROUTE} element={<Admin/>} />
-          <Route path={HALL_ROUTE} element={<Hall/>} />
-          <Route path={FORMS_ROUTE} element={<Forms/>} />
-          <Route path="*" element={<NotFound />}/>
+          <Route path={BASE_ROUTE} element={<Home />} />
+          <Route path={EVENT_ROUTE} element={<Events />} />
+          <Route path={NOTICE_ROUTE} element={<Notices />} />
+          <Route path={VIDEOS_ROUTE} element={<Videos />} />
+          <Route path={HISTORY_ROUTE} element={<History />} />
+          <Route path={CONTACT_ROUTE} element={<Contact />} />
+          <Route path={PHOTO_ROUTE} element={<Photo />} />
+          <Route path={DONATION_ROUTE} element={<Donation />} />
+          <Route path={ANANDHANAM_ROUTE} element={<Anandhanam />} />
+          <Route path={POOJAI1} element={<Poojai1 />} />
+          <Route path={POOJAI2} element={<Poojai2 />} />
+          <Route path={ARTICALS_ROUTE} element={<ArticalId />} />
+          <Route path={EVENTID_ROUTE} element={<EventId />} />
+          <Route path={KATTADAM_ROUTE} element={<Kattanam />} />
+          <Route path={CONTACTSEVA_ROUTE} element={<ContactSeva />} />
+          <Route path={DEVIGAL_ROUTE} element={<Devigal />} />
+          <Route path={TEMPLEARC_ROUTE} element={<TempleArchi />} />
+          <Route path={MANDAPAM_ROUTE} element={<Mandapam />} />
+          <Route path={KALVETTU_ROUTE} element={<Kalvettu />} />
+          <Route path={GOPURAM_ROUTE} element={<Gopuram />} />
+          <Route path={ADMIN_ROUTE} element={<Admin />} />
+          <Route path={HALL_ROUTE} element={<Hall />} />
+          <Route path={FORMS_ROUTE} element={<Forms />} />
+          <Route path="/history/:type/details/:id" element={<HistoryDetailsComponent />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </BrowserRouter>

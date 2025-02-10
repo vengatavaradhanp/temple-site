@@ -2,7 +2,7 @@
 /* @import "@font/nunito"; */
 *{
     /* font-family: var(--fontFamily-nunito); */
-    font-family:cursive ;
+    /* font-family:cursive ; */
 }
 body {
     background: #f7f0ea;
@@ -28,7 +28,8 @@ figure iframe {
   position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: 10px;
+  border-radius: 0px;
+  border: 0px !important;
 }
 .row {
     margin: 0;
@@ -657,8 +658,18 @@ width: '100%';
     font-size: 2.5em;
 }
 .arting img {
-    height: 600px;
+    height: 300px;
 }
 .articleImg.artImages {
     height: 100%;
+}
+
+
+.WrapCardContent {
+    height: 200px;
+    max-height: 200px;
+}
+
+.breadcrumb { 
+align-items: center !important;
 }
