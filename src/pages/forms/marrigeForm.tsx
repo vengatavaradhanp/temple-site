@@ -191,7 +191,7 @@ const RegistrationForm: React.FunctionComponent = () => {
             >
               <div className="row">
                 <div className="col-md-6 form-group">
-                  <label htmlFor="date">Date:</label>
+                  <label htmlFor="date">தேதி:</label>
                   <input
                     type="date"
                     id="date"
@@ -210,7 +210,7 @@ const RegistrationForm: React.FunctionComponent = () => {
                   )}
                 </div>
                 <div className="col-md-6 form-group">
-                  <label htmlFor="time">Time:</label>
+                  <label htmlFor="time">நேரம்:</label>
                   <input
                     type="time"
                     id="time"
@@ -231,7 +231,7 @@ const RegistrationForm: React.FunctionComponent = () => {
               </div>
               <div className="row">
                 <div className="col-md-6 form-group">
-                  <label htmlFor="brideName">Bride Name:</label>
+                  <label htmlFor="brideName">மணமகள் பெயர்:</label>
                   <input
                     type="text"
                     id="brideName"
@@ -250,7 +250,7 @@ const RegistrationForm: React.FunctionComponent = () => {
                   )}
                 </div>
                 <div className="col-md-6 form-group">
-                  <label htmlFor="groomName">Groom Name:</label>
+                  <label htmlFor="groomName">மணமகன் பெயர்:</label>
                   <input
                     type="text"
                     id="groomName"
@@ -271,7 +271,7 @@ const RegistrationForm: React.FunctionComponent = () => {
               </div>
               <div className="row">
                 <div className="col-md-6 form-group">
-                  <label htmlFor="brideAadhar">Bride Aadhar:</label>
+                  <label htmlFor="brideAadhar">மணமகள் ஆதார்:</label>
                   <input
                     type="file"
                     id="brideAadhar"
@@ -289,7 +289,7 @@ const RegistrationForm: React.FunctionComponent = () => {
                   )}
                 </div>
                 <div className="col-md-6 form-group">
-                  <label htmlFor="groomAadhar">Groom Aadhar:</label>
+                  <label htmlFor="groomAadhar">மணமகன் ஆதார்:</label>
                   <input
                     type="file"
                     id="groomAadhar"
@@ -309,7 +309,7 @@ const RegistrationForm: React.FunctionComponent = () => {
               </div>
               <div className="row">
                 <div className="col-md-6 form-group">
-                  <label htmlFor="registerName">Register Name:</label>
+                  <label htmlFor="registerName">பதிவு பெயர்:</label>
                   <input
                     type="text"
                     id="registerName"
@@ -328,7 +328,7 @@ const RegistrationForm: React.FunctionComponent = () => {
                   )}
                 </div>
                 <div className="col-md-6 form-group">
-                  <label htmlFor="registerPhone">Register Phone Number:</label>
+                  <label htmlFor="registerPhone">பதிவு தொலைபேசி எண்:</label>
                   <input
                     type="tel"
                     id="registerPhone"
@@ -349,9 +349,7 @@ const RegistrationForm: React.FunctionComponent = () => {
               </div>
               <div className="row">
                 <div className="col-md-6 form-group">
-                  <label htmlFor="alternatePhone">
-                    Alternate Phone Number:
-                  </label>
+                  <label htmlFor="alternatePhone">மாற்று தொலைபேசி எண்:</label>
                   <input
                     type="tel"
                     id="alternatePhone"
@@ -362,7 +360,7 @@ const RegistrationForm: React.FunctionComponent = () => {
                   />
                 </div>
                 <div className="col-md-6 form-group">
-                  <label htmlFor="HallName">Hall Name:</label>
+                  <label htmlFor="HallName">மண்டபத்தின் பெயர்:</label>
                   <input
                     type="text"
                     id="HallName"
