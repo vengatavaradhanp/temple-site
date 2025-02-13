@@ -1,5 +1,5 @@
 // import { Link } from "react-router-dom";
-import { ANANDHANAM_ROUTE, BASE_ROUTE, CONTACT_ROUTE, CONTACTSEVA_ROUTE, DEVIGAL_ROUTE, EVENT_ROUTE, FORMS_ROUTE, GOPURAM_ROUTE, HALL_ROUTE, KALVETTU_ROUTE, KATTADAM_ROUTE, PHOTO_ROUTE, POOJAI1, POOJAI2, TEMPLEARC_ROUTE } from "../_main/routeConstant";
+import { ANANDHANAM_ROUTE, BASE_ROUTE, CONTACT_ROUTE, CONTACTSEVA_ROUTE, DEVIGAL_ROUTE, EVENT_ROUTE, FORMS_ROUTE, GOPURAM_ROUTE, HALL_ROUTE, KALVETTU_ROUTE, KATTADAM_ROUTE, PHOTO_ROUTE, POOJAI1, POOJAI2, RANDOM, REPEATED, TEMPLEARC_ROUTE, VIP } from "../_main/routeConstant";
 
 export const MenuItems = [
   {
@@ -64,17 +64,17 @@ export const MenuItems = [
           {
             id: 1,
             sub_sub_name: "விஐபி",
-            link: BASE_ROUTE,
+            link: VIP,
           },
           {
             id: 2,
             sub_sub_name: "சீரற்ற நன்கொடையாளர்",
-            link: BASE_ROUTE,
+            link: RANDOM,
           },
           {
             id: 3,
             sub_sub_name: "மீண்டும் நன்கொடையாளர்",
-            link: BASE_ROUTE,
+            link: REPEATED,
           },
         ],
       },
@@ -204,5 +204,11 @@ export const MenuItems = [
         link: CONTACTSEVA_ROUTE,
       },
     ],
+  },
+  {
+    id: 8,
+    menu: "Admin ",
+    link: "/admin/main",
+    sub_menu: [],
   },
 ];

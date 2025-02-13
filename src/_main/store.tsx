@@ -16,6 +16,8 @@ import kalvettuReducer from '../services/kalvettuContent';
 import photoReducer from '../services/photoContent';
 import AnandhanamReducer from '../services/anandhanam';
 import historyDetails from '../services/historyDetailsSlice';
+import ArticlePost from '../services/articlePost';
+import listPathReducer from "../services/listPath";
 // import gopuramContent from '../services/gopuramContent';
 
 export const store = configureStore({
@@ -37,6 +39,8 @@ export const store = configureStore({
     photo: photoReducer,
     anandhanam: AnandhanamReducer,
     historyDetails: historyDetails,
+    articlePost: ArticlePost,
+    listPath: listPathReducer,
     // gopuram:gopuramContent,
   },
 });

@@ -7,10 +7,10 @@ const ProtectedRoute = () => {
 
   return !user ? (
     <>
-      <h3>Header</h3>
+    {/* <h3>Header</h3> */}
       <Outlet />
 
-      <h3>Footer</h3>
+      {/* <h3>Footer</h3> */}
     </>
   ) : (
     <Navigate to="/login" replace />

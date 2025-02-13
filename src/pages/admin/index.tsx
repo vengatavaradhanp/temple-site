@@ -58,8 +58,8 @@
 import { useRef, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import JoditEditor from "jodit-react";
-import "react-quill/dist/quill.snow.css";
-import ReactQuill from "react-quill";
+// import "react-quill/dist/quill.snow.css";
+// import ReactQuill from "react-quill";
 import { useNavigate } from "react-router-dom";
 
 const Index = () => {
@@ -67,124 +67,155 @@ const Index = () => {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState(null);
   const [editorContent, setEditorContent] = useState("");
+  const [content, setContent] = useState("");
+  const [articleData, setArticleData] = useState({
+    title: "",
+    type: "", // Stores selected option
+    filepath: null as File | null,
+    body: "",
+  });
+  console.log('articleData', articleData);
+const handleChange = (
+  e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+) => {
+  const { name, value } = e.target;
+  setArticleData((prev) => ({
+    ...prev,
+    [name]: value,
+  }));
+};
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const editor = useRef(null);
-  const [content, setContent] = useState("");
-
+  console.log('content', content);
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log({ category, title, image, editorContent });
     alert("Form Submitted!");
   };
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setImage(URL.createObjectURL(file));
-    }
-  };
+  // const handleImageChange = (e) => {
+  //   const file = e.target.files[0];
+  //   if (file) {
+  //     setImage(URL.createObjectURL(file));
+  //   }
+  // };
 
   return (
     <div
-      className="container mt-4 border p-4"
+      className="justify-content-center align-item-center"
       style={{
         backgroundImage: `url("/src/assets/3484.jpg")`,
         backgroundSize: "cover",
-
-        // boxShadow:
-        //   "rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset",
-        borderRadius: "10px",
-        opacity: "0.7",
+        width: "100%",
+        height: "100vh",
       }}
     >
-      <h2 className="my-4" style={{ textAlign: "center", color: "white" }}>Admin Homepage</h2>
-      <form onSubmit={handleSubmit}>
-        {/* <div className="input-group mb-3">
-          <label className="form-label" style={{ color: "white" }}>
-            Category
-          </label>
-          <select
-            className="form-select"
-            id="inputGroupSelect01"
-            style={{
-              width: "100%",
-              height: "40px",
-              borderRadius: "4px",
-            }}
-          >
-            <option selected>Choose...</option>
-            <option value="Article">Article</option>
-            <option value="Notice Board">Notice Board</option>
-            <option value="Videos">Videos</option>
-          </select>
-        </div> */}
-        
-
-        {/* Title Field */}
-        <div className="mb-3">
-          <label className="form-label" style={{ color: "white" }}>
-            Title
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Enter Title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-          />
+      <form
+        onSubmit={handleSubmit}
+        className="container p-4"
+        style={{
+          position: "relative",
+          background: "white",
+          top: "10%",
+          borderRadius: "10px",
+          boxShadow:
+            "rgba(255, 255, 255, 0.93) 0px 0.0625em 0.0625em, rgba(230, 228, 228, 0.79) 0px 0.125em 0.5em, rgba(234, 233, 233, 0.79) 0px 0px 0px 1px inset",
+        }}
+        encType="multipart/form-data"
+      >
+        <div className="text-center">
+          <div className="row">
+            <div className="col">
+              <label className="form-label d-flex">Category</label>
+              <select
+                className="form-select w-100 "
+                style={{ height: "40px", borderRadius: "5px", padding: "5px" }}
+                id="inputGroupSelect01"
+                name="type"
+                value={articleData.type}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Choose...</option>
+                <option value="Article">Article</option>
+                <option value="Notice Board">Notice Board</option>
+                <option value="Videos">Videos</option>
+              </select>
+              {/* <select
+                className="form-select form-select-lg mb-3 w-100"
+                style={{ height: "40px", borderRadius: "5px"}}
+                value={articleData.type}
+                onChange={handleChange}
+              >
+                <option selected>Choose...</option>
+                <option value="Article">Article</option>
+                <option value="NoticeBoard">Notice Board</option>
+                <option value="Videos">Videos</option>
+              </select> */}
+            </div>
+            <div className="col">
+              <label className="form-label d-flex">Title</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Enter Title"
+                name="title"
+                value={articleData.title}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
         </div>
 
-        {/* Image Upload */}
-        <div className="mb-3">
-          <label className="form-label" style={{ color: "white" }}>
-            Upload Image
-          </label>
-          <input
-            type="file"
-            className="form-control p-1"
-            accept="image/*"
-            onChange={handleImageChange}
-            required
-          />
-          {image && (
-            <img
-              src={image}
-              alt="Preview"
-              className="mt-2"
-              style={{ width: "100px", height: "auto" }}
+        <div className="text-center">
+          <div className="row">
+            <div className="col mt-4">
+              <label className="form-label d-flex">Upload Image</label>
+              <input
+                type="file"
+                className="form-control p-1"
+                accept="image/*"
+                onChange={handleImageChange}
+                required
+              />
+              {image && (
+                <img
+                  src={image}
+                  alt="Preview"
+                  className="mt-2"
+                  style={{ width: "100px", height: "auto" }}
+                />
+              )}
+            </div>
+            <div className="col"></div>
+          </div>
+        </div>
+
+        {/* Editor */}
+        <div className="row mt-4">
+          <div className="col">
+            <label className="form-label">Editor</label>
+            <JoditEditor
+              ref={editor}
+              value={articleData.body}
+              onChange={(newContent) =>
+                setArticleData((prev) => ({ ...prev, body: newContent }))
+              }
+              className="mb-4"
             />
-          )}
+          </div>
         </div>
-
-        {/* Text Editor */}
-        {/* <div className="mb-3">
-           <label className="form-label" style={{ color: "white" }}>
-             Editor
-           </label>
-           <ReactQuill
-             theme="snow"
-             value={editorContent}
-             onChange={setEditorContent}
-             style={{ color: "white" }}
-           />
-         </div> */}
-        <label className="form-label" style={{ color: "white" }}>
-          Editor
-        </label>
-        <JoditEditor
-          ref={editor}
-          value={content}
-          // onChange={(newContent) => setContent(newContent)}
-          className="mb-4"
-          onChange={setEditorContent}
-        />
 
         {/* Submit & Cancel Buttons */}
-        <div className="d-flex">
-          <button type="submit" className="btn btn-primary mr-2">
+        <div className="d-flex justify-content-center mt-4">
+          <button
+            type="submit"
+            className="btn mr-2"
+            style={{ backgroundColor: "#44233b", color: "white" }}
+          >
             Submit
           </button>
           <button
@@ -194,14 +225,9 @@ const Index = () => {
           >
             Cancel
           </button>
-          <button
-            type="button"
-            className="btn border ml-2"
-            style={{color: "white"}}
-            onClick={() => navigate("/admin/listpage")}
-          >
+          {/* <button type="button" className="btn border ml-2 text-white">
             List View
-          </button>
+          </button> */}
         </div>
       </form>
     </div>

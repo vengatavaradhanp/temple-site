@@ -674,3 +674,7 @@ width: '100%';
 .breadcrumb { 
 align-items: center !important;
 }
+
+.page-link {
+    color: rgb(68, 35, 59);
+}

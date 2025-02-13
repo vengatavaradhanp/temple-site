@@ -104,9 +104,9 @@ const App: React.FC = () => {
             </Route>
 
             <Route element={<ProtectedRoute />}>
-              <Route path="/admin" element={<Admin />} />
+              <Route path="/admin/main" element={<ListPage />} />
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/admin/listpage" element={<ListPage />} />
+              <Route path="/admin" element={<Admin />} />
             </Route>
 
             <Route path="*" element={<NotFound />} />
