@@ -18,6 +18,8 @@ import AnandhanamReducer from '../services/anandhanam';
 import historyDetails from '../services/historyDetailsSlice';
 import ArticlePost from '../services/articlePost';
 import listPathReducer from "../services/listPath";
+import adminUserReducer from '../services/adminUser';
+import deleteArticle from '../services/deleteArticle';
 // import gopuramContent from '../services/gopuramContent';
 
 export const store = configureStore({
@@ -41,6 +43,8 @@ export const store = configureStore({
     historyDetails: historyDetails,
     articlePost: ArticlePost,
     listPath: listPathReducer,
+    adminuser: adminUserReducer,
+    deleteArticleId: deleteArticle,
     // gopuram:gopuramContent,
   },
 });

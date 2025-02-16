@@ -30,6 +30,10 @@ import {
   FORMS_ROUTE,
   POOJAI1,
   POOJAI2,
+  VIP_ROUTE,
+  RANDOM_ROUTE,
+  REPEATED_ROUTE,
+  OFFICERS_ROUTE,
 } from "./_main/routeConstant";
 import Notices from "./layout/sidebar/notices";
 import Videos from "./layout/sidebar/vediosCard";
@@ -62,6 +66,12 @@ import { AuthProvider } from "./context/AuthContext";
 import Dashboard from "./pages/admin/Dashboard";
 import PublicRoute from "./routes/PublicRoute";
 import ListPage from "./pages/admin/listPath";
+import AdminUser from "./pages/admin/adminUser";
+import AdminCreateUser from "./pages/admin/adminCreateUser";
+import Repeated from "./pages/repeated";
+import Random from "./pages/random";
+import Vip from "./pages/vip";
+import Officers from "./pages/contact/officers";
 
 const App: React.FC = () => {
   // const isAuthenticated = false; // Replace with your authentication logic
@@ -82,6 +92,10 @@ const App: React.FC = () => {
               <Route path={CONTACT_ROUTE} element={<Contact />} />
               <Route path={PHOTO_ROUTE} element={<Photo />} />
               <Route path={DONATION_ROUTE} element={<Donation />} />
+              <Route path={VIP_ROUTE} element={<Vip />} />
+              <Route path={OFFICERS_ROUTE} element={<Officers />} />
+              <Route path={REPEATED_ROUTE} element={<Repeated />} />
+              <Route path={RANDOM_ROUTE} element={<Random />} />
               <Route path={ANANDHANAM_ROUTE} element={<Anandhanam />} />
               <Route path={POOJAI1} element={<Poojai1 />} />
               <Route path={POOJAI2} element={<Poojai2 />} />
@@ -107,6 +121,9 @@ const App: React.FC = () => {
               <Route path="/admin/main" element={<ListPage />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/admin" element={<Admin />} />
+              <Route path="/createUser" element={<AdminUser />} />
+              {/* <Route path="/adminUser" element={<AdminUser />} /> */}
+              <Route path="/adminCreateUser" element={<AdminCreateUser />} />
             </Route>
 
             <Route path="*" element={<NotFound />} />

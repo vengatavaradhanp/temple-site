@@ -6,7 +6,7 @@ import Sun from "../assets/sun.png";
 const Loader: React.FC = () => {
   return (
     <div style={{ display: "grid" }}>
-      <div className="text-center position-relative">
+      <div className="text-center absolute h-50">
         <div className="sun-wrapper">
           <img src={Sun} alt="Sun" className="sun-icon" />
         </div>

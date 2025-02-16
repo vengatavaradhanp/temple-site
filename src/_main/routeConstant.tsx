@@ -24,6 +24,10 @@ export const ADMIN_ROUTE='/admin';
 export const FORMS_ROUTE='/forms';
 export const KATTADAM_ROUTE='/katadakaragal';
 export const HALL_ROUTE='/hall';
+export const VIP_ROUTE='/vip';
+export const RANDOM_ROUTE='/random';
+export const REPEATED_ROUTE='/reapted';
+export const OFFICERS_ROUTE='/officers';
 
 // APIURL
 export const API_URL = "http://192.168.1.64:8000";

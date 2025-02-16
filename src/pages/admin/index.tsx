@@ -95,12 +95,12 @@ const handleChange = (
     alert("Form Submitted!");
   };
 
-  // const handleImageChange = (e) => {
-  //   const file = e.target.files[0];
-  //   if (file) {
-  //     setImage(URL.createObjectURL(file));
-  //   }
-  // };
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setImage(URL.createObjectURL(file));
+    }
+  };
 
   return (
     <div
@@ -114,6 +114,7 @@ const handleChange = (
     >
       <form
         onSubmit={handleSubmit}
+        encType="multipart/form-data"
         className="container p-4"
         style={{
           position: "relative",
