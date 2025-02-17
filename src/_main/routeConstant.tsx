@@ -30,7 +30,7 @@ export const REPEATED_ROUTE='/reapted';
 export const OFFICERS_ROUTE='/officers';
 
 // APIURL
-export const API_URL = "http://192.168.1.64:8000";
+export const API_URL = "http://192.168.1.65:8000";
 
 //regex
 export const REGEXBANK = /Bank:\s*(.+?),\s*SB A\/c:\s*(\d+)\s*IFSC:\s*(\S+)/;

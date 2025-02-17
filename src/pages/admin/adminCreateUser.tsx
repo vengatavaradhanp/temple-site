@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { contactDetails } from "../../services/contactContent";
 import { Pencil, Plus, Trash } from "../../assets/assetsSvg";
 import Loader from "../../components/loader";
+import { API_URL } from "../../_main/routeConstant";
 
 const AdminCreateUser: React.FC = () => {
   const navigate = useNavigate();
@@ -17,31 +18,40 @@ const AdminCreateUser: React.FC = () => {
 
   const DeleteArticleById = () => {
     // const dispatch: AppDispatch = useDispatch();
-    const deleteArticleData = useSelector((state: RootState) => state.deleteArticleId.data);
+    const deleteArticleData = useSelector(
+      (state: RootState) => state.deleteArticleId.data
+    );
     console.log("deleteArticleData", deleteArticleData);
-  
-  }
+  };
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       await dispatch(contactDetails(selectedCategory)); // Fetch based on selected category
-      console.log('contactDetails', contactDetails(selectedCategory));      
+      console.log("contactDetails", contactDetails(selectedCategory));
       setLoading(false);
     };
 
     fetchData();
   }, [dispatch, selectedCategory]); // Fetch data when category changes
 
+  useEffect(() => {
+    fetch(`${API_URL}article/article_delete`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(DeleteArticleById),
+    }).then((res) => res.json());
+  }, []);
+
   const handleEdit = (item: any) => {
     navigate(`/edit/${item.id}`, { state: { item } });
   };
 
-//   const handleDelete = (id: number) => {
-//     if (window.confirm("Are you sure you want to delete this item?")) {
-//       console.log("Deleted", id);
-//       setData(data.filter((item: { id: number }) => item.id !== id));
-//     }
-//   };
+  //   const handleDelete = (id: number) => {
+  //     if (window.confirm("Are you sure you want to delete this item?")) {
+  //       console.log("Deleted", id);
+  //       setData(data.filter((item: { id: number }) => item.id !== id));
+  //     }
+  //   };
 
   const setData = (newData: any) => {
     dispatch({ type: "contact/setData", payload: newData });
@@ -85,14 +95,13 @@ const AdminCreateUser: React.FC = () => {
               <option value="group">Group</option>
             </select>
 
-            
             <button
               style={{
                 backgroundColor: "#44233b",
                 color: "white",
                 fontSize: "20px",
                 padding: "5px",
-                borderRadius: "5px"
+                borderRadius: "5px",
               }}
               onClick={() => navigate("/createUser")}
             >
