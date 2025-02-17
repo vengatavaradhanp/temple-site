@@ -21,7 +21,7 @@ const Index = () => {
   console.log("kalvettudata", kalvettudata);
   useEffect(() => {
     dispatch(kalvettuContent("script"));
-  }, [dispatch]);
+  }, [dispatch]); 
 
   return (
     <div>

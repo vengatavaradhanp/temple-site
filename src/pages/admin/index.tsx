@@ -55,7 +55,6 @@
 //     }
 //   };
 
-
 //   return (
 //     <div
 //       className="justify-content-center align-item-center"
@@ -186,13 +185,19 @@ import JoditEditor from "jodit-react";
 import { API_URL } from "../../_main/routeConstant";
 
 const Index = () => {
-  const [image, setImage] = useState<File | null>(null);
+  const [imageFile, setImageFile] = useState<File | null>(null); // Store the file object
+  const [imagePreview, setImagePreview] = useState<string | null>(null); // Store preview URL
   const [articleData, setArticleData] = useState({
     title: "",
     type: "",
     filepath: "",
     body: "",
+    date: "",
+    time: "",
+    author: "",
+    location: "",
   });
+  console.log("Form Data:", articleData);
 
   const editor = useRef(null);
 
@@ -207,82 +212,78 @@ const Index = () => {
   };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setImage(e.target.files[0]);
-    }
-  };
+    const file = e.target.files?.[0];
+    if (file) {
+      setImageFile(file); // Store the actual file
+      setImagePreview(URL.createObjectURL(file)); // Create preview URL
 
-  const uploadImage = async () => {
-    if (!image) return null;
-
-    const formData = new FormData();
-    formData.append("file", image);
-
-    try {
-      const response = await fetch("http://192.168.1.65:8000/file/upload", {
-        method: "POST",
-        body: formData,
+      console.log("Selected Image:", {
+        name: file.name,
+        size: file.size,
+        type: file.type,
       });
-
-      const result = await response.json();
-      if (response.ok) {
-        return result.filePath; // Assuming API returns the uploaded file path
-      } else {
-        throw new Error(result.message || "Image upload failed");
-      }
-    } catch (error) {
-      console.error("Image Upload Error:", error);
-      return null;
     }
   };
+  //   try {
+  //     const response = await fetch("http://192.168.1.65:8000/file/upload", {
+  //       method: "POST",
+  //       body: formData,
+  //     });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  //     const result = await response.json();
+  //     if (response.ok) {
+  //       return result.filePath; // Assuming API returns the uploaded file path
+  //     } else {
+  //       throw new Error(result.message || "Image upload failed");
+  //     }
+  //   } catch (error) {
+  //     console.error("Image Upload Error:", error);
+  //     return null;
+  //   }
+  // };
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    try {
-      const uploadedFilePath = await uploadImage();
-
-      if (!uploadedFilePath) {
-        alert("Image upload failed!");
-        return;
-      }
-
-      const articlePayload = { ...articleData, filepath: uploadedFilePath };
-
-      const response = await fetch(`${API_URL}/article/article_create`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(articlePayload),
-      });
-
-      const result = await response.json();
-      if (response.ok) {
-        console.log("Article Created:", result);
-        alert("Article Submitted Successfully!");
-      } else {
-        throw new Error(result.message || "Article submission failed");
-      }
-    } catch (error) {
-      console.error("Error submitting article:", error);
-      alert("Submission failed! Check the console for details.");
+    // Create a FormData object for upload
+    const formData = new FormData();
+    formData.append("title", articleData.title);
+    formData.append("body", articleData.body);
+    formData.append("type", articleData.type);
+    formData.append("filepath", articleData.filepath);
+    formData.append("date", articleData.date);
+    formData.append("time", articleData.time);
+    formData.append("author", articleData.author);
+    formData.append("location", articleData.location);
+    if (imageFile) {
+      formData.append("image", imageFile);
     }
+
+    console.log("Final Form Data:", Object.fromEntries(formData.entries()));
+    alert("Form Submitted!");
   };
 
   return (
     <div
       className="justify-content-center align-item-center"
-      style={{ backgroundSize: "cover", width: "100%", height: "100vh" }}
+      style={{
+        backgroundImage: `url("/src/assets/3484.jpg")`,
+        backgroundSize: "cover",
+        width: "100%",
+        height: "100vh",
+      }}
     >
       <form
         onSubmit={handleSubmit}
         encType="multipart/form-data"
         className="container p-4"
         style={{
+          position: "relative",
           background: "white",
+          top: "10%",
           borderRadius: "10px",
-          boxShadow: "0px 0.125em 0.5em rgba(234, 233, 233, 0.79)",
+          boxShadow:
+            "rgba(255, 255, 255, 0.93) 0px 0.0625em 0.0625em, rgba(230, 228, 228, 0.79) 0px 0.125em 0.5em, rgba(234, 233, 233, 0.79) 0px 0px 0px 1px inset",
         }}
       >
         <div className="text-center">
@@ -297,10 +298,16 @@ const Index = () => {
                 onChange={handleChange}
                 required
               >
-                <option value="">Choose...</option>
-                <option value="Article">Article</option>
-                <option value="Notice Board">Notice Board</option>
-                <option value="Videos">Videos</option>
+                <option value="">தேர்வு செய்யவும்...</option>
+                <option value="Article">கட்டுரை</option>
+                <option value="Notice Board">அறிக்கை பலகை</option>
+                <option value="Videos">வீடியோக்கள்</option>
+                <option value="god services">ஆன்மிக சேவையாளர்கள்</option>
+                <option value="hall service">ஆலய சேவைகள்</option>
+                <option value="services">சேவைகள்</option>
+                <option value="collection">தொகுப்புக்கள் </option>
+                <option value="hall booking">ஆலய முன்பதிவு</option>
+                <option value="admin">நிர்வாகிகள்</option>
               </select>
             </div>
             <div className="col">

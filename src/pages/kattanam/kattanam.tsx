@@ -19,22 +19,6 @@ const Index = () => {
     }, [dispatch]);
 
   return (
-    <>
-      {/* <div className="homebannerImages">
-        <div className="container-fluid">
-          <div className="mt-5">
-            <div className="row adminItems">
-              {katanaragaldata.map((item: Article) => (
-                <div className="adminPhoto eventsclassName" key={item.id}>
-                  <img src={item.filepath} alt={item.title} />
-                  <h5>{item.title}</h5>
-                  <h6>{item.body}</h6>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div> */}
       <div>
         <div className="homebannerImages row">
           <BreadcrumbComponent
@@ -91,7 +75,6 @@ const Index = () => {
           </div>
         </div>
       </div>
-    </>
   );
 }
 

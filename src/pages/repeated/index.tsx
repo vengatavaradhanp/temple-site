@@ -23,20 +23,17 @@ const Index = () => {
   }, [dispatch]);
 
   return (
-    <div className="homebannerImages">
-      <BreadcrumbComponent page="நன்கொடையாளர்கள்" sub="மீண்டும் நன்கொடையாளர்" />
-      {loading ? (
-        <Loader />
-      ) : (
+    <div>
+      <div className="homebannerImages row">
         <div className="row">
           <div className="col-lg-12 border-0 bgImg bgText animated bounceInLeft arting">
+            <BreadcrumbComponent
+              page="நன்கொடையாளர்கள்"
+              sub="மீண்டும் நன்கொடையாளர்கள்"
+            />
             <div className="row">
               {repeated.map((item: Article) => (
-                <div
-                  className="col-6"
-                  style={{ padding: "20px" }}
-                  key={item.id}
-                >
+                <div className="col-6" style={{ padding: "10px" }}>
                   <div
                     style={{
                       boxShadow:
@@ -47,21 +44,20 @@ const Index = () => {
                     <div>
                       <img
                         src={item.filepath}
-                        alt={item.title}
-                        style={{
-                          borderRadius: "10px 10px 0px 0px",
-                          width: "100%",
-                        }}
+                        style={{ borderRadius: "10px 10px 0px 0px" }}
                       />
                     </div>
                     <div style={{ padding: "15px" }}>
-                      <div>
-                        <h4 style={{ textAlign: "left" }}>{item.title}</h4>
-                      </div>
-                      <div
-                        style={{ textAlign: "justify", padding: "10px 0px" }}
-                      >
-                        {CommonService.truncateText(item.body)}
+                      <div className="WrapCardContent">
+                        <div>
+                          <h4 style={{ textAlign: "left" }}>{item.title}</h4>
+                        </div>
+
+                        <div
+                          style={{ textAlign: "justify", padding: "10px 0px" }}
+                        >
+                          {CommonService.truncateText(item.body)}
+                        </div>
                       </div>
                       <div>
                         <div
@@ -71,6 +67,10 @@ const Index = () => {
                             cursor: "pointer",
                             textAlign: "right",
                           }}
+                          // onClick={() =>
+                          //   navigate(`/history/script/details/${item.id}`)
+                          // }
+                          // to={`/articals/${item.id}`}
                         >
                           மேலும்..
                         </div>
@@ -82,7 +82,7 @@ const Index = () => {
             </div>
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 };

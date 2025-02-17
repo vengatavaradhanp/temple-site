@@ -170,7 +170,7 @@ const RegistrationForm: React.FunctionComponent = () => {
               onChange={showFields}
               required
             >
-              <option value="">நிகழ்வைத் தேர்ந்தெடுக்கவும்</option>
+              <option value="">நிகழ்வைத் தேர்ந்தெடுக்கவும்......</option>
               <option value="marrige">திருமணம்</option>
               <option value="Engagement">நிச்சயதார்த்தம்</option>
               <option value="birthday">பிறந்தநாள்</option>

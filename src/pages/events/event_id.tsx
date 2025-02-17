@@ -10,6 +10,7 @@ import Loader from "../../components/loader";
 // import Tittle from "../../layout/tittle/tittle";
 import "../../styles/global.css";
 import BreadcrumbComponent from "../../components/common/Breadcrumb";
+import Events from "./events";
 
 const EventId = () => {
   const { id } = useParams<EventParams>();
@@ -40,7 +41,7 @@ const EventId = () => {
           <Loader />
         ) : (
           <>
-            <BreadcrumbComponent page="ஆலய சேவைகள்" sub="தைப்பூசம்" />
+            <BreadcrumbComponent page="ஆலய சேவைகள்" sub={eventiddata?.title} />
             <div className=" row god">
               <div className="col-lg-12">
                 <div className="eventsbgclassName">
