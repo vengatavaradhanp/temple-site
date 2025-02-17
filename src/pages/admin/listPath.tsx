@@ -1,65 +1,10 @@
-// import React from "react";
-// import {Pencil} from "../../assets/assetsSvg";
-// import {Trash} from "../../assets/assetsSvg";
-
-// const ListPage: React.FC = () => {
-//   const data = [{ id: 1, category: "Sample Category", title: "Sample Title" }];
-
-//   return (
-//     <div
-//       className="container mt-4"
-//       style={{ boxShadow: "rgba(0, 0, 0, 0.09) 0px 3px 12px" }}
-//     >
-//       <h2 className="text-center mb-4">Temple Activities</h2>
-//       <div className="table-responsive">
-//         <table className="table table-striped table-bordered align-middle text-center">
-//           <thead className="table-dark" style={{ backgroundColor: "#44233b" }}>
-//             <tr>
-//               <th style={{ width: "5%" }}>SL</th>
-//               <th>Category</th>
-//               <th>Title</th>
-//               <th style={{ width: "20%" }}>Action</th>
-//             </tr>
-//           </thead>
-//           <tbody>
-//             {data.map((item, index) => (
-//               <tr key={item.id}>
-//                 <td>{index + 1}</td>
-//                 <td>{item.category}</td>
-//                 <td>{item.title}</td>
-//                 <td>
-//                   <button
-//                     onClick={() => console.log("Edit")}
-//                     className="btn border btn-sm me-2"
-//                   >
-//                     <Pencil />
-//                   </button>
-//                   <button
-//                     onClick={() => console.log("Deleted")}
-//                     className="btn border btn-sm"
-//                   >
-//                     <Trash />
-//                   </button>
-//                 </td>
-//               </tr>
-//             ))}
-//           </tbody>
-//         </table>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default ListPage;
-
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../_main/store";
 import { useNavigate } from "react-router-dom";
-import { listpathContent } from "../../services/listPath";
+import { listpathContent, deleteItem } from "../../services/listPath";
 import { Pencil, Plus, Trash } from "../../assets/assetsSvg";
 import Loader from "../../components/loader";
-// import { API_URL } from "../_main/routeConstant";
 
 const ListPage: React.FC = () => {
   const navigate = useNavigate();
@@ -70,7 +15,7 @@ const ListPage: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      await dispatch(listpathContent()); // Replace "your-params" with actual params if needed
+      await dispatch(listpathContent());
       setLoading(false);
     };
 
@@ -79,30 +24,17 @@ const ListPage: React.FC = () => {
 
   const handleEdit = (item: any) => {
     console.log("Edit", item);
-    navigate(`/edit/${item.id}`, { state: { item } });
+    navigate(`/admin, { state: { item } }`);
   };
-  //  const handleEdit = async (item: any) => {
-  //   try {
-  //     const response = await axios.put(`${API_URL}/article/${item.id}`, item);
-  //     return response.data;
-  //   } catch (error) {
-  //     console.error('Error editing item:', error);
-  //     throw error;
-  //   }
-  // };
 
   const handleDelete = (id: number) => {
     if (window.confirm("Are you sure you want to delete this item?")) {
-      console.log("Deleted", id);
-      setData(data.filter((item: { id: number }) => item.id !== id));
+      dispatch(deleteItem(id));
     }
   };
-
-  const setData = (newData: any) => {
-    // Implement the logic to update the state with new data
-    // This could be a Redux action or a local state update
-
-    dispatch({ type: "listpath/setData", payload: newData });
+  
+  const handleCreate = () => {
+    navigate("/admin");
   };
 
   return (
@@ -115,7 +47,7 @@ const ListPage: React.FC = () => {
       }}
     >
       <div
-        className=" mt-6 p-4 mx-4 w-75"
+        className="mt-6 p-4 mx-4 w-75"
         style={{
           position: "relative",
           top: "10%",
@@ -125,52 +57,38 @@ const ListPage: React.FC = () => {
         }}
       >
         <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <div>
-            <form className="d-flex" role="search">
-              <input
-                className="form-control me-2 px-4"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button
-                className="btn"
-                type="submit"
-                style={{
-                  outline: "rgb(68, 35, 59)",
-                  backgroundColor: "rgb(68, 35, 59)",
-                  color: "white",
-                }}
-              >
-                Search
-              </button>
-            </form>
-          </div>
-          <div></div>
-          <div
-            className="relative text-white"
+          <form className="d-flex" role="search">
+            <input
+              className="form-control me-2 px-4"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button
+              className="btn"
+              type="submit"
+              style={{
+                outline: "rgb(68, 35, 59)",
+                backgroundColor: "rgb(68, 35, 59)",
+                color: "white",
+                height: "40px",
+              }}
+            >
+              Search
+            </button>
+          </form>
+          <button
+            className="btn text-white"
             style={{
               backgroundColor: "#44233b",
-              color: "white",
-              border: "1px solid black",
               borderRadius: "5px",
               marginBottom: "10px",
             }}
+            onClick={handleCreate}
           >
-            <button
-              style={{
-                color: "white",
-                fontSize: "20px",
-                padding: "5px",
-              }}
-              onClick={() => navigate("/admin")}
-            >
-              <div className="px-4">
-                <Plus />
-                <span>Create</span>
-              </div>
-            </button>
-          </div>
+            <Plus />
+            <span>Create</span>
+          </button>
         </div>
         <div className="table-responsive">
           {loading ? (
@@ -249,7 +167,6 @@ const ListPage: React.FC = () => {
             </nav>
           </div>
         </div>
-        {/* <Loader /> */}
       </div>
     </div>
   );

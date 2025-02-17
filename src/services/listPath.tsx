@@ -20,6 +20,7 @@ const initialState: listpathContentState = {
   loading: false,
 };
 
+// Fetch all data (READ operation)
 export const listpathContent = createAsyncThunk(
   "listpath/listpathSlice",
   async () => {
@@ -27,10 +28,59 @@ export const listpathContent = createAsyncThunk(
       method: "GET",
     };
     const url = `${API_URL}/article/all-articles`;
-
-    console.log("url", url);
     const response = await callFetch(url, option);
-    console.log("+++++++++", response);
+    return response;
+  }
+);
+
+// Delete an item (DELETE operation)
+export const deleteItem = createAsyncThunk(
+  "listpath/deleteItem",
+  async (id: number, { rejectWithValue }) => {
+    const option = {
+      method: "DELETE",
+    };
+    const url = `${API_URL}/article/article_delete/${id}`;
+    try {
+      const response = await callFetch(url, option);
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
+      console.log("response", response);
+      return id;  // Return id to delete it from state
+    } catch (error) {
+      console.error("Delete Error:", (error as Error).message);
+      return rejectWithValue((error as Error).message);
+    }
+  }
+);
+
+// Create item (CREATE operation)
+export const createItem = createAsyncThunk(
+  "listpath/createItem",
+  async (newItem: any) => {
+    const option = {
+      method: "POST",
+      body: JSON.stringify(newItem),
+    };
+    const url = `${API_URL}/article/article_create/`;
+    const response = await callFetch(url, option);
+    console.log("response", response);
+    return response;
+  }
+);
+
+// Update item (UPDATE operation)
+export const updateItem = createAsyncThunk(
+  "listpath/updateItem",
+  async (updatedItem: any) => {
+    const option = {
+      method: "PUT",
+      body: JSON.stringify(updatedItem),
+    };
+    const url = `${API_URL}/article/update/${updatedItem.id}`;
+    const response = await callFetch(url, option);
+    console.log("response", response);
     return response;
   }
 );
@@ -56,7 +106,22 @@ const listpathSlice = createSlice({
       .addCase(listpathContent.rejected, (state, action: any) => {
         state.loading = false;
         state.status = "failed";
-        state.error = action.payload || "Failed to fetch patient data";
+        state.error = action.payload || "Failed to fetch data";
+      })
+      .addCase(deleteItem.fulfilled, (state, action: any) => {
+        state.data = state.data.filter((item: { id: any; }) => item.id !== action.payload);
+      })
+      .addCase(deleteItem.rejected, (state, action: any) => {
+        state.error = action.payload;
+      })
+      .addCase(createItem.fulfilled, (state, action: any) => {
+        state.data.push(action.payload);
+      })
+      .addCase(updateItem.fulfilled, (state, action: any) => {
+        const index = state.data.findIndex((item: { id: any; }) => item.id === action.payload.id);
+        if (index !== -1) {
+          state.data[index] = action.payload;
+        }
       });
   },
 });
