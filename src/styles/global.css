@@ -678,3 +678,6 @@ align-items: center !important;
 .page-link {
     color: rgb(68, 35, 59);
 }
+.jodit-wysiwyg p{
+    height: 120px;
+}
