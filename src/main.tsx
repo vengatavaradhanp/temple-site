@@ -4,6 +4,8 @@ import "./index.css";
 import App from "./App.tsx";
 import { Provider } from "react-redux";
 import { store } from "./_main/store.tsx";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

@@ -20,6 +20,8 @@ import ArticlePost from '../services/articlePost';
 import listPathReducer from "../services/listPath";
 import adminUserReducer from '../services/adminUser';
 import deleteArticle from '../services/deleteArticle';
+import articleDetails from '../services/articleDetailsSlice';
+import BookingReducer from '../services/booking';
 // import gopuramContent from '../services/gopuramContent';
 
 export const store = configureStore({
@@ -41,7 +43,9 @@ export const store = configureStore({
     photo: photoReducer,
     anandhanam: AnandhanamReducer,
     historyDetails: historyDetails,
+    articleDetails: articleDetails,
     articlePost: ArticlePost,
+    Booking: BookingReducer,
     listPath: listPathReducer,
     adminuser: adminUserReducer,
     deleteArticleId: deleteArticle,

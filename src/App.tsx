@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -34,6 +34,8 @@ import {
   RANDOM_ROUTE,
   REPEATED_ROUTE,
   OFFICERS_ROUTE,
+  BOOKINGLIST_ROUTE,
+  REGISTRATION_ROUTE,
 } from "./_main/routeConstant";
 import Notices from "./layout/sidebar/notices";
 import Videos from "./layout/sidebar/vediosCard";
@@ -53,7 +55,7 @@ import TempleArchi from "./pages/Kadidangal/index";
 import Mandapam from "./pages/mandapam/index";
 import Admin from "./pages/admin/index";
 import Hall from "./pages/mandabangal/index";
-import Forms from "./pages/forms/marrigeForm";
+import Forms from "./pages/forms/registrationForm";
 import Poojai1 from "./pages/poojaiPrasadam/poojai1";
 import Poojai2 from "./pages/poojaiAnadhanam/poojai2";
 import Tittle from "../src/layout/tittle/tittle";
@@ -72,10 +74,19 @@ import Repeated from "./pages/repeated";
 import Random from "./pages/random";
 import Vip from "./pages/vip";
 import Officers from "./pages/contact/officers";
+import ArticleDetailsComponent from "./components/aticle-details";
+// import Forms from "./pages/forms/registrationForm";
+import BookingList from "./pages/forms/bookingList";
+import RegistrationForm from "./pages/forms/registrationForm";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
+
 
 const App: React.FC = () => {
   // const isAuthenticated = false; // Replace with your authentication logic
-
+useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <AuthProvider>
@@ -111,9 +122,15 @@ const App: React.FC = () => {
               {/* <Route path={ADMIN_ROUTE} element={<Admin />} /> */}
               <Route path={HALL_ROUTE} element={<Hall />} />
               <Route path={FORMS_ROUTE} element={<Forms />} />
+              <Route path={FORMS_ROUTE} element={<Forms />} />
+              <Route path={REGISTRATION_ROUTE} element={<RegistrationForm />} />
               <Route
                 path="/history/:type/details/:id"
                 element={<HistoryDetailsComponent />}
+              />
+              <Route
+                path="/:type/details/:id"
+                element={<ArticleDetailsComponent />}
               />
             </Route>
 
@@ -124,6 +141,7 @@ const App: React.FC = () => {
               <Route path="/createUser" element={<AdminUser />} />
               {/* <Route path="/adminUser" element={<AdminUser />} /> */}
               <Route path="/adminCreateUser" element={<AdminCreateUser />} />
+              <Route path={BOOKINGLIST_ROUTE} element={<BookingList />} />
             </Route>
 
             <Route path="*" element={<NotFound />} />

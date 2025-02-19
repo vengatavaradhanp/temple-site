@@ -83,7 +83,7 @@ const Index = () => {
     <div
       className="justify-content-center align-item-center"
       style={{
-        backgroundImage: url("/src/assets/3484.jpg"),
+        backgroundImage: `url("/src/assets/3484.jpg")`,
         backgroundSize: "cover",
         width: "100%",
         height: "100vh",
@@ -174,6 +174,9 @@ const Index = () => {
               onChange={(newContent) =>
                 setArticleData((prev) => ({ ...prev, body: newContent }))
               }
+              config={{
+                language: 'ta'
+              }}
               className="mb-4"
             />
           </div>

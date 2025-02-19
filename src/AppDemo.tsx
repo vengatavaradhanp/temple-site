@@ -50,7 +50,7 @@ import TempleArchi from "./pages/Kadidangal/index";
 import Mandapam from "./pages/mandapam/index";
 import Admin from "./pages/admin/index";
 import Hall from "./pages/mandabangal/index";
-import Forms from "./pages/forms/marrigeForm";
+import Forms from "./pages/forms/registrationForm";
 import Poojai1 from "./pages/poojaiPrasadam/poojai1";
 import Poojai2 from "./pages/poojaiAnadhanam/poojai2";
 

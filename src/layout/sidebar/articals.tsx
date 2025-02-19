@@ -6,6 +6,7 @@ import { eventContent } from "../../services/eventContent";
 import { Article } from "../../types/types";
 import { articalContent } from "../../services/articalsContent";
 import CommonService from "../../utils/common";
+import { useNavigate } from "react-router-dom";
 
 const Articals = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -13,6 +14,7 @@ const Articals = () => {
   // const headerdata = useSelector((state: RootState) => state.event.header);
   const articalsdata = useSelector((state: RootState) => state.articals.data);
   const tittledata = useSelector((state: RootState) => state.articals.header);
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(eventContent());
@@ -43,7 +45,7 @@ const Articals = () => {
                     />
                   </div>
                   <div style={{ padding: "15px" }}>
-                    <div className='WrapCardContent'>
+                    <div className="WrapCardContent">
                       <div>
                         <h4 style={{ textAlign: "left" }}>{item.title}</h4>
                       </div>
@@ -62,6 +64,7 @@ const Articals = () => {
                           cursor: "pointer",
                           textAlign: "right",
                         }}
+                        onClick={() => navigate(`article/details/${item.id}`)}
                         // to={`/articals/${item.id}`}
                       >
                         மேலும்..

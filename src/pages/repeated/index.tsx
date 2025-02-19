@@ -33,7 +33,7 @@ const Index = () => {
             />
             <div className="row">
               {repeated.map((item: Article) => (
-                <div className="col-6" style={{ padding: "10px" }}>
+                <div className="col-lg-4 col-sm-6 col-xs-12" style={{ padding: "10px" }}>
                   <div
                     style={{
                       boxShadow:

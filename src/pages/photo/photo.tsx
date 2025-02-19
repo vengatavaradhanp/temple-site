@@ -15,7 +15,8 @@ const Photo = () => {
 console.log('photo',photo)
   const dispatch: AppDispatch = useDispatch();
   const photodata = useSelector((state: RootState) => state.photo.data);
-
+  console.log("photo data", photodata);
+  
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -27,6 +28,7 @@ console.log('photo',photo)
 
     fetchData();
   }, [dispatch,photo]);
+  
 
   return (
     <div className="homebannerImages">
@@ -35,12 +37,68 @@ console.log('photo',photo)
         <Loader />
       ) : (
         <div className="row mt-5">
-          <div className="col-lg-12 adminItems">
+          {/* <div className="row adminItems">
             {photodata.map((item: Article) => (
-              <div className="adminPhoto eventsclassName" key={item.id}>
+              <div className="col-lg-4 adminPhoto eventsclassName" key={item.id}>
                 <img src={item.filepath} alt={item.title} />
                 <h6 className="mb-2 mt-2">{item.title}</h6>
                 <div>{item.date}</div>
+              </div>
+            ))}
+          </div> */}
+          <div className="row">
+            {photodata.map((item: Article) => (
+              <div
+                className="col-lg-4 col-sm-6 col-xs-12"
+                style={{ padding: "10px" }}
+              >
+                <div
+                  style={{
+                    boxShadow:
+                      "rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em",
+                    borderRadius: "10px",
+                  }}
+                >
+                  <div>
+                    <img
+                      src={item.filepath}
+                      style={{ borderRadius: "10px 10px 0px 0px" }}
+                    />
+                  </div>
+                  <div style={{ padding: "15px" }}>
+                    <div className="WrapCardContent">
+                      <div>
+                        <h4 style={{ textAlign: "left" }}>{item.title}</h4>
+                      </div>
+
+                      <div
+                        style={{
+                          textAlign: "justify",
+                          padding: "10px 0px",
+                        }}
+                      >
+                        {item.date}
+                        {/* {CommonService.truncateText(item.body)} */}
+                      </div>
+                    </div>
+                    {/* <div>
+                      <div
+                        style={{
+                          fontWeight: 600,
+                          color: "#894c5c",
+                          cursor: "pointer",
+                          textAlign: "right",
+                        }}
+                        // onClick={() =>
+                        //   navigate(`/history/script/details/${item.id}`)
+                        // }
+                        // to={`/articals/${item.id}`}
+                      >
+                        மேலும்..
+                      </div>
+                    </div> */}
+                  </div>
+                </div>
               </div>
             ))}
           </div>

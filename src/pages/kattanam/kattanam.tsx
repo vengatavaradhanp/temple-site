@@ -1,39 +1,42 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from "react";
 import { AppDispatch, RootState } from "../../_main/store";
 import { useDispatch, useSelector } from "react-redux";
 import { contactDetails } from "../../services/contactContent";
-import { Article } from '../../types/types';
-import CommonService from '../../utils/common';
-import BreadcrumbComponent from '../../components/common/Breadcrumb';
+import { Article } from "../../types/types";
+import CommonService from "../../utils/common";
+import BreadcrumbComponent from "../../components/common/Breadcrumb";
+import Loader from "../../components/loader";
 // import Tittle from '../../layout/tittle/tittle';
 // import Header from '../../layout/header/header';
 // import Footer from '../../layout/footer/footer';
 
 const Index = () => {
-    const dispatch: AppDispatch = useDispatch();
-    const katanaragaldata = useSelector((state: RootState) => state.contact.data);
+  const dispatch: AppDispatch = useDispatch();
+  const katanaragaldata = useSelector((state: RootState) => state.contact.data);
+  // const [loading, setLoading] = useState(true);
 
-  console.log('kalvettudata',katanaragaldata)
-    useEffect(() => {
-      dispatch(contactDetails("sub"));
-    }, [dispatch]);
+  console.log("kalvettudata", katanaragaldata);
+  useEffect(() => {
+    dispatch(contactDetails("sub"));
+  }, [dispatch]);
 
   return (
-      <div>
-        <div className="homebannerImages row">
-          <BreadcrumbComponent
-            page="ஆன்மிக சேவையாளர்கள்"
-            sub="கட்டணக்காரர்கள்"
-          />
+    <div>
+      <div className="homebannerImages row">
+        <BreadcrumbComponent page="ஆன்மிக சேவையாளர்கள்" sub="கட்டணக்காரர்கள்" />
           <div className="row">
             <div className="col-lg-12 border-0 bgImg bgText animated bounceInLeft arting">
               <div className="row">
                 {katanaragaldata.map((item: Article) => (
-                  <div className="col-6" style={{ padding: "20px" }}>
+                  <div
+                    className="col-lg-4 col-sm-6 col-xs-12"
+                    style={{ padding: "20px" }}
+                  >
                     <div
                       style={{
-                        boxShadow:
-                          "rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em",
+                        // boxShadow:
+                        //   "rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em",
+                        boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
                         borderRadius: "10px",
                       }}
                     >
@@ -53,7 +56,7 @@ const Index = () => {
                         >
                           {CommonService.truncateText(item.body)}
                         </div>
-                        <div>
+                        {/* <div>
                           <div
                             style={{
                               fontWeight: 600,
@@ -65,7 +68,7 @@ const Index = () => {
                           >
                             மேலும்..
                           </div>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   </div>
@@ -73,9 +76,9 @@ const Index = () => {
               </div>
             </div>
           </div>
-        </div>
       </div>
+    </div>
   );
-}
+};
 
-export default Index
+export default Index;

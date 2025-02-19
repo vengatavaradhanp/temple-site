@@ -2,9 +2,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import callFetch from "../_main/fetch";
 import { API_URL } from "../_main/routeConstant";
 
-
 // Define the state interface
-interface ArticalsState {
+interface ArticleDetailsState {
   data: any;
   status: "idle" | "loading" | "succeeded" | "failed";
   error: string | null;
@@ -12,45 +11,43 @@ interface ArticalsState {
 }
 
 // Initial state
-const initialState: ArticalsState = {
+const initialState: ArticleDetailsState = {
   data: [],
   status: "idle",
   error: null,
   loading: false,
 };
 
-export const articalsbyID = createAsyncThunk(
-  "articalsid/articalsIDSlice",
-  async (params:number) => {
+export const getArticleDetails = createAsyncThunk(
+  "article/detailsSlice",
+  async (params: any) => {
     const option = {
       method: "GET",
     };
-    
-    const url = `${API_URL}/article/article/${params}`;
+    const url = `${API_URL}/article${params}`;
     const response = await callFetch(url, option);
-    console.log("+++++++++", response);
     return response;
   }
 );
 
 // Create slice
-const articalsIDSlice = createSlice({
-  name: "articalsid",
+const articleDetailsSlice = createSlice({
+  name: "article",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(articalsbyID.pending, (state) => {
+      .addCase(getArticleDetails.pending, (state) => {
         state.loading = true;
         state.status = "loading";
         state.error = null;
       })
-      .addCase(articalsbyID.fulfilled, (state, action: any) => {
+      .addCase(getArticleDetails.fulfilled, (state, action: any) => {
         state.data = action.payload?.data || action.payload;
         state.loading = false;
         state.status = "succeeded";
       })
-      .addCase(articalsbyID.rejected, (state, action: any) => {
+      .addCase(getArticleDetails.rejected, (state, action: any) => {
         state.loading = false;
         state.status = "failed";
         state.error = action.payload || "Failed to fetch patient data";
@@ -58,4 +55,4 @@ const articalsIDSlice = createSlice({
   },
 });
 
-export default articalsIDSlice.reducer;
+export default articleDetailsSlice.reducer;

@@ -24,6 +24,7 @@ const Notices = () => {
   useEffect(() => {
     dispatch(noticeContent());
   }, [dispatch]);
+  
   return (
     <div className="homebannerImages row mt-5 showClass" id="targetElement">
       {/* {noticedata.map((item:Notice)=>( */}

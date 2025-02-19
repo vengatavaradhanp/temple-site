@@ -5,7 +5,7 @@ import { headerContent } from "../../services/headerContent";
 import { useEffect } from "react";
 import { AppDispatch, RootState } from "../../_main/store";
 import { useDispatch, useSelector } from "react-redux";
-import { eventContent } from "../../services/eventContent"; 
+import { eventContent } from "../../services/eventContent";
 import { MenuItems } from "../../utils/constants";
 
 const Header = () => {
@@ -18,6 +18,10 @@ const Header = () => {
     dispatch(eventContent("banner"));
   }, [dispatch]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   return (
     <div>
       <header>
