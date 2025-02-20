@@ -117,9 +117,9 @@ const Index = () => {
                 required
               >
                 <option value="">தேர்வு செய்யவும்...</option>
-                <option value="Article">கட்டுரை</option>
+                <option value="article">கட்டுரை</option>
                 <option value="Notice Board">அறிக்கை பலகை</option>
-                <option value="Videos">வீடியோக்கள்</option>
+                <option value="videos">வீடியோக்கள்</option>
                 <option value="god services">ஆன்மிக சேவையாளர்கள்</option>
                 <option value="hall service">ஆலய சேவைகள்</option>
                 <option value="services">சேவைகள்</option>
@@ -149,7 +149,7 @@ const Index = () => {
               <label className="form-label d-flex">Upload Image</label>
               <input
                 type="file"
-                className="form-control p-1"
+                className="form-control"
                 accept="image/*"
                 onChange={handleImageChange}
               />
@@ -170,18 +170,20 @@ const Index = () => {
         <div className="row mt-4">
           <div className="col">
             <label className="form-label">Editor</label>
-            {/* <JoditEditor
-              ref={editor}
+            <JoditEditor
+              // ref={editor}
               value={articleData.body}
-              onChange={(newContent) =>
-                setArticleData((prev) => ({ ...prev, body: newContent }))
-              }
+              // onChange={(newContent) =>
+              //   setArticleData((prev) => ({ ...prev, body: newContent }))
+              // }
               config={{
-                language: 'ta'
+                speechRecognize: {
+                  lang: "ta-IN",
+                },
               }}
               className="mb-4"
-            /> */}
-            <TamilVoiceEditor/>
+            />
+            {/* <TamilVoiceEditor/> */}
           </div>
         </div>
 

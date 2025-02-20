@@ -149,7 +149,7 @@ const AdminUser = () => {
             <label className="form-label d-flex">Upload Image</label>
             <input
               type="file"
-              className="form-control p-1"
+              className="form-control"
               accept="image/*"
               onChange={handleImageChange}
               required

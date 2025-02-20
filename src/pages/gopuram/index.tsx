@@ -51,7 +51,7 @@ const Index = () => {
           <BreadcrumbComponent page="தல வரலாறு" sub="கோபுரங்கள் " />
           <div className="row">
             {gopuramdata.map((item: Article, index: number) => (
-              <div className="col-6" style={{ padding: "10px" }}>
+              <div className="col-lg-6 col-sm-12" style={{ padding: "10px" }}>
                 <div
                   style={{
                     boxShadow:

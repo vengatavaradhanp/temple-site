@@ -23,14 +23,19 @@ const Contact = () => {
   }, [dispatch]);
 
   return (
-    <div className="homebannerImages">
+    <div
+      className="homebannerImages"
+    >
       <BreadcrumbComponent page="நிர்வாகிகள்" sub="திருப்பனி குழு" />
       {loading ? (
         <Loader />
       ) : (
         <div className="container-fluid">
           <div className="mt-5">
-            <h3 className="mb-4" style={{ textAlign: "center", textDecoration: "underline" }}>
+            <h3
+              className="mb-4"
+              style={{ textAlign: "center", textDecoration: "underline" }}
+            >
               அர்ச்சகர்
             </h3>
             <div className="row">
@@ -81,7 +86,7 @@ const Contact = () => {
             </div>
           </div>
         </div>
-      )}
+       )} 
     </div>
   );
 };

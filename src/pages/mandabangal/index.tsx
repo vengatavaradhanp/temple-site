@@ -49,7 +49,7 @@ const Index = () => {
           <BreadcrumbComponent page="தல வரலாறு" sub="மண்டபங்கள் & சிற்பங்கள்" />
           <div className="row">
             {halldata.map((item: Article, index: number) => (
-              <div className="col-6" style={{ padding: "10px" }}>
+              <div className="col-lg-6 col-sm-12" style={{ padding: "10px" }}>
                 <div
                   style={{
                     boxShadow:

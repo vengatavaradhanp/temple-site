@@ -29,9 +29,7 @@ const ArticalsId = () => {
 
   return (
     <>
-      {/* <Tittle/>
-      <Header /> */}
-      <div className="homebannerImages container-fluid">
+      <div className="homebannerImages container-fluid" >
         {loading ? (
           <Loader />
         ) : (

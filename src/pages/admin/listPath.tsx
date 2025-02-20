@@ -24,7 +24,7 @@ const ListPage: React.FC = () => {
 
   const handleEdit = (item: any) => {
     console.log("Edit", item);
-    navigate(`/admin, { state: { item } }`);
+    navigate('/admin', { state: { item } });
   };
 
   const handleDelete = (id: number) => {

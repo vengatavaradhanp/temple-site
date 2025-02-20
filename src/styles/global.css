@@ -113,7 +113,7 @@ ul.dropdown {
     top: 20px;
 }
 .dropdown li {
-    padding: -2px;
+    padding: 0px 10px;
     width: 100%;
 }
 .articlebg img {
@@ -683,8 +683,85 @@ align-items: center !important;
 .jodit-wysiwyg p{
     height: 120px;
 }
+nav.navbar.navbar-brand:hover {
+    color: #FD8F8F;
+}
+.mrgFun {
+    width: 70%;
+    margin: 0 auto;
+}
+
+
+@media (max-width: 1440px) {
+    #collapsibleNavbar li a {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 1280px) {
+    #collapsibleNavbar li a {
+        font-size: 13px;
+    }
+    .showRow {
+        height: 100%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .homebannerImages {
+        width: 100%;
+        padding: 30px;
+    }
+    #collapsibleNavbar li a {
+        font-size: 12px;
+        margin: 0;
+        padding: 4px;
+    }
+}
+
+@media (max-width: 991px) {
+    nav.navbar.navbar-brand {
+        font-size: 16px;
+    }
+    ul.navbar-nav.ml-auto {
+        display: block;
+    }
+    #collapsibleNavbar li a {
+        margin: 0px 15px;
+    }
+    .single-video {
+        width: 100%;
+        margin-right: 0;
+    }
+    .mrgFun {
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    nav.navbar.navbar-brand {
+        white-space: break-spaces;
+    }
+    ul.navbar-nav.ml-auto {
+        display: flex;
+    }
+    .navbar-dark .navbar-brand {
+        width: auto;
+    }
+    .homebannerImages {
+        padding: 10px;
+    }
+    .WrapCardContent {
+        height: 100%;
+        max-height: 100%;
+    }
+    .showClass h2 {
+        font-size: 26px;
+    }
+}
+
 .modal {
 background:rgba(55,55,55,.6);
 backdrop-filter: blur(2px);
--webkit-backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
 }
