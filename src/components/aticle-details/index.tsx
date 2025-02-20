@@ -45,10 +45,15 @@ const ArticleDetailsComponent = () => {
     fetchEvents();
   }, [dispatch]);
 
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+
   console.log("###", type);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  
   return (
     <div className="homebannerImages" style={{ marginTop: "30px" }} key={id}>
       <BreadcrumbComponent page="முகப்பு" sub="கட்டுரை" child="விவரம்" />

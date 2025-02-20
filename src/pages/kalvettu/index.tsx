@@ -14,14 +14,18 @@ import CommonService from "../../utils/common";
 const Index = () => {
   // const {script} = useParams<EventParams>();
   const navigate = useNavigate();
-  
+
   const dispatch: AppDispatch = useDispatch();
   const kalvettudata = useSelector((state: RootState) => state.kalvettu.data);
 
   console.log("kalvettudata", kalvettudata);
   useEffect(() => {
     dispatch(kalvettuContent("script"));
-  }, [dispatch]); 
+  }, [dispatch]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div>

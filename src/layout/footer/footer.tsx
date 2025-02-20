@@ -104,7 +104,7 @@ const Footer = () => {
   return (
     <>
       <div className="footer mt-1 pt-4 pb-1">
-        <div className="container" style={{ maxWidth: '1240px'}}>
+        <div className="container" style={{ maxWidth: "1240px" }}>
           <div className="row">
             <div className="col-lg-3 col-sm-4 col-xs-12">
               <div className="single_footer">
@@ -212,7 +212,7 @@ const Footer = () => {
               >
                 Copyright © 2025{" "}
                 <a
-                  href="https://www.google.com/maps?cid=16849371041513875497"
+                  href="https://datatechgenius.com/"
                   target="_blank"
                   style={{ color: "white" }}
                 >

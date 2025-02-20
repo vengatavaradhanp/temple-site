@@ -5,7 +5,8 @@ import { contactDetails } from "../../services/contactContent";
 import { Article } from "../../types/types";
 import CommonService from "../../utils/common";
 import BreadcrumbComponent from "../../components/common/Breadcrumb";
-import Loader from "../../components/loader";
+import DefaultImage from "../../assets/eventsbg.jpg";
+// import Loader from "../../components/loader";
 // import Tittle from '../../layout/tittle/tittle';
 // import Header from '../../layout/header/header';
 // import Footer from '../../layout/footer/footer';
@@ -42,11 +43,11 @@ const Index = () => {
                     >
                       <div>
                         <img
-                          src={item.filepath}
+                          src={item.filepath || DefaultImage}
                           style={{ borderRadius: "10px 10px 0px 0px" }}
                         />
                       </div>
-                      <div style={{ padding: "15px" }}>
+                      <div style={{ padding: "15px", height: "120px" }}>
                         <div>
                           <h4 style={{ textAlign: "left" }}>{item.title}</h4>
                         </div>

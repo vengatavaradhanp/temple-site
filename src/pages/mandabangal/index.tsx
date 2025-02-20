@@ -20,7 +20,10 @@ const Index = () => {
     dispatch(kalvettuContent("hall"));
   }, [dispatch]);
 
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   return (
     // <div className="homebannerImages row my-5">
     //   {halldata.map((item: Article) => (

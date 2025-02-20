@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import moment from "moment";
-import React from "react";
+import React, { useEffect } from "react";
 import BreadcrumbComponent from "../common/Breadcrumb";
 import { API_URL } from "../../_main/routeConstant";
 import { useParams } from "react-router-dom";
@@ -44,6 +44,10 @@ const HistoryDetailsComponent = () => {
 
     fetchEvents();
   }, [dispatch]);
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
 
   console.log("###", type );
 

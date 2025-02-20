@@ -9,6 +9,7 @@ import { eventContent } from "../../services/eventContent";
 import { Article } from "../../types/types";
 import { Link } from "react-router-dom";
 import Loader from "../../components/loader";
+import DefaultImage from "../../assets/defaultImage.jpg";
 // import Tittle from "../../layout/tittle/tittle";
 
 const Events = () => {
@@ -25,6 +26,9 @@ const Events = () => {
 
     fetchEvents();
   }, [dispatch]);
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
 
   return (
     <div>
@@ -47,7 +51,7 @@ const Events = () => {
               {eventdata.map((item: Article, index: number) => (
                 <div className="col-lg-4 col-md-6 col-12" key={index}>
                   <div className="eventsclassName">
-                    <img src={item.media} alt={item.title || "Event"} />
+                    <img src={item.media ? item.media : DefaultImage} alt={item.title || "Event"} />
                     <h3 style={{ marginTop: "0.5em" }}>{item.title}</h3>
                     <div className="truncate-text" >{item.body}</div>
                     <Link to={`/events/${item.id}`}>கண்டறியவும்</Link>

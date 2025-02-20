@@ -5,6 +5,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../_main/store";
 import { createItem, updateItem } from "../../services/listPath";
+import TamilVoiceEditor from "../../components/voice";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -69,6 +70,7 @@ const Index = () => {
     if (imageFile) {
       formData.append("image", imageFile);
     }
+    
 
     if (articleData.id) {
       await dispatch(updateItem({ ...articleData, filepath: imageFile }));
@@ -168,7 +170,7 @@ const Index = () => {
         <div className="row mt-4">
           <div className="col">
             <label className="form-label">Editor</label>
-            <JoditEditor
+            {/* <JoditEditor
               ref={editor}
               value={articleData.body}
               onChange={(newContent) =>
@@ -178,7 +180,8 @@ const Index = () => {
                 language: 'ta'
               }}
               className="mb-4"
-            />
+            /> */}
+            <TamilVoiceEditor/>
           </div>
         </div>
 

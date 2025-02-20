@@ -81,7 +81,6 @@ import RegistrationForm from "./pages/forms/registrationForm";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
-
 const App: React.FC = () => {
   // const isAuthenticated = false; // Replace with your authentication logic
 useEffect(() => {

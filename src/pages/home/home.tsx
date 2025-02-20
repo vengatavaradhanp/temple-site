@@ -10,6 +10,7 @@ const home = () => {
   useEffect(() => {
       window.scrollTo(0, 0);
     }, []);
+    
   return (
     <>
      <Sidebar/>

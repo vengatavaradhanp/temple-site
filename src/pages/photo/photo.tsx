@@ -9,6 +9,7 @@ import Loader from "../../components/loader";
 import {photoContent} from "../../services/photoContent";
 import { useParams } from "react-router-dom";
 import BreadcrumbComponent from "../../components/common/Breadcrumb";
+import DefaultImage from '../../assets/defaultImage.jpg'
 
 const Photo = () => {
  const { photo} = useParams<EventParams>();
@@ -59,10 +60,10 @@ console.log('photo',photo)
                     borderRadius: "10px",
                   }}
                 >
-                  <div>
+                  <div style={{height: "250px"}}>
                     <img
-                      src={item.filepath}
-                      style={{ borderRadius: "10px 10px 0px 0px" }}
+                      src={item.filepath || DefaultImage}
+                      style={{ borderRadius: "10px 10px 0px 0px", height: "100%", width: "100%" }}
                     />
                   </div>
                   <div style={{ padding: "15px" }}>

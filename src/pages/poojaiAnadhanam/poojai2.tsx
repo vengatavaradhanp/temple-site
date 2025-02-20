@@ -13,7 +13,6 @@ import { anandhanam } from "../../services/anandhanam";
 import BreadcrumbComponent from "../../components/common/Breadcrumb";
 // import {eventContent} from "../../services/eventContent";
 
-
 const Poojai2 = () => {
   const dispatch: AppDispatch = useDispatch();
   const poojai2data = useSelector((state: RootState) => state.anandhanam.data);
@@ -31,45 +30,47 @@ const Poojai2 = () => {
     fetchData();
   }, [dispatch]);
 
-    return (
-      <div className="homebannerImages">
-        <BreadcrumbComponent page="சேவைகள்" sub="அன்னதானம் + பூஜை + பிரசாதம்" />
-        {loading ? (
-          <Loader />
-        ) : (
-          poojai2data.map((item: Notice) => (
-            <div className="container-fluid" key={item?.id}>
-              <div className="row god">
-                <div className="col-lg-12">
-                  <div className="eventsbgclassName">
-                    <img src={item?.filepath} alt={item?.title} />
-                  </div>
-                </div>
-              </div>
-              <div className="row mt-5">
-                <div className="col-lg-12">
-                  <div>
-                    <h2
-                      style={{
-                        textAlign: "center",
-                        textDecoration: "underline",
-                        marginBottom: "1em",
-                      }}
-                    >
-                      {item?.title}
-                    </h2>
-                    <p style={{ textAlign: "justify" }}>{item?.body}</p>
-                  </div>
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
+  return (
+    <div className="homebannerImages">
+      <BreadcrumbComponent page="சேவைகள்" sub="அன்னதானம் + பூஜை + பிரசாதம்" />
+      {loading ? (
+        <Loader />
+      ) : (
+        poojai2data.map((item: Notice) => (
+          <div className="container-fluid" key={item?.id}>
+            <div className="row god">
+              <div className="col-lg-12">
+                <div className="eventsbgclassName">
+                  <img src={item?.filepath} alt={item?.title} />
                 </div>
               </div>
             </div>
-          ))
-        )}
-        {/* <Footer /> */}
-      </div>
-    );
+            <div className="row mt-5">
+              <div className="col-lg-12">
+                <div>
+                  <h2
+                    style={{
+                      textAlign: "center",
+                      textDecoration: "underline",
+                      marginBottom: "1em",
+                    }}
+                  >
+                    {item?.title}
+                  </h2>
+                  <p style={{ textAlign: "justify" }}>{item?.body}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      )}
+      {/* <Footer /> */}
+    </div>
+  );
 };
 
 export default Poojai2;
-
-

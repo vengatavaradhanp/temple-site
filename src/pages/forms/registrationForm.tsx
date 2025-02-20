@@ -391,7 +391,7 @@ const RegistrationForm: React.FunctionComponent = () => {
             </div>
             <div className="row">
               <div className="col-md-6 form-group">
-                <label htmlFor="TokenNumber">டோக்கன் எண்:</label>
+                <label htmlFor="TokenNumber">Token Number:</label>
                 <input
                   type="text"
                   id="TokenNumber"
@@ -410,7 +410,7 @@ const RegistrationForm: React.FunctionComponent = () => {
                 )}
               </div>
               <div className="col-md-6 form-group">
-                <label htmlFor="IyyerName">ஐயர் பெயர்:</label>
+                <label htmlFor="IyyerName">Iyyer Name:</label>
                 <input
                   type="text"
                   id="IyyerName"
@@ -451,7 +451,8 @@ const RegistrationForm: React.FunctionComponent = () => {
           >
             <div className="row">
               <div className="col-md-6 form-group">
-                <label htmlFor="birthdayDate">பிறந்தநாள் தேதி:</label>
+                <label htmlFor="birthdayDate">Birthday Date:</label>
+                {/* பிறந்தநாள் தேதி */}
                 <input
                   type="date"
                   id="birthdayDate"
@@ -470,7 +471,8 @@ const RegistrationForm: React.FunctionComponent = () => {
                 )}
               </div>
               <div className="col-md-6 form-group">
-                <label htmlFor="birthdayTime">பிறந்தநாள் நேரம்:</label>
+                <label htmlFor="birthdayTime">Birthday Time:</label>
+                {/* பிறந்தநாள் நேரம் */}
                 <input
                   type="time"
                   id="birthdayTime"
@@ -491,7 +493,7 @@ const RegistrationForm: React.FunctionComponent = () => {
             </div>
             <div className="row">
               <div className="col-md-6 form-group">
-                <label htmlFor="birthdayName">பிறந்தநாள் நபரின் பெயர்:</label>
+                <label htmlFor="birthdayName">Birthday Person Name:</label>
                 <input
                   type="text"
                   id="birthdayName"
@@ -510,7 +512,7 @@ const RegistrationForm: React.FunctionComponent = () => {
                 )}
               </div>
               <div className="col-md-6 form-group">
-                <label htmlFor="registerName">பதிவு பெயர்:</label>
+                <label htmlFor="registerName">Register Name:</label>
                 <input
                   type="text"
                   id="registerName"
@@ -531,7 +533,7 @@ const RegistrationForm: React.FunctionComponent = () => {
             </div>
             <div className="row">
               <div className="col-md-6 form-group">
-                <label htmlFor="registerPhone">பதிவு தொலைபேசி எண்:</label>
+                <label htmlFor="registerPhone">Register Phone:</label>
                 <input
                   type="tel"
                   id="registerPhone"
@@ -550,7 +552,7 @@ const RegistrationForm: React.FunctionComponent = () => {
                 )}
               </div>
               <div className="col-md-6 form-group">
-                <label htmlFor="alternatePhone"> மாற்று தொலைபேசி எண்:</label>
+                <label htmlFor="alternatePhone"> Alternate Phone:</label>
                 <input
                   type="tel"
                   id="alternatePhone"
@@ -563,7 +565,7 @@ const RegistrationForm: React.FunctionComponent = () => {
             </div>
             <div className="row">
               <div className="col-md-6 form-group">
-                <label htmlFor="HallName">மண்டபத்தின் பெயர்:</label>
+                <label htmlFor="HallName">Hall Name:</label>
                 <input
                   type="text"
                   id="HallName"
@@ -582,7 +584,7 @@ const RegistrationForm: React.FunctionComponent = () => {
                 )}
               </div>
               <div className="col-md-6 form-group">
-                <label htmlFor="TokenNumber">டோக்கன் எண்:</label>
+                <label htmlFor="TokenNumber">Token Number:</label>
                 <input
                   type="text"
                   id="TokenNumber"

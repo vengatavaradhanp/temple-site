@@ -5,10 +5,11 @@ import { contactDetails } from "../../services/contactContent";
 // import Header from "../../layout/header/header";
 // import Footer from "../../layout/footer/footer";
 import { Notice } from "../../types/types";
-import UserImage from "../../assets/profile-circle.svg";
+import UserImage from "../../assets/u12.jpeg";
 import Loader from "../../components/loader";
 import BreadcrumbComponent from "../../components/common/Breadcrumb";
 // import Tittle from "../../layout/tittle/tittle";
+// import DefaultImage from "../../assets/eventsbg.jpg";
 
 const Officers = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -33,7 +34,10 @@ const Officers = () => {
       ) : (
         <div className="container-fluid">
           <div className="mt-5">
-            <h3 className="mb-4" style={{ textAlign: "center", textDecoration: "underline" }}>
+            <h3
+              className="mb-4"
+              style={{ textAlign: "center", textDecoration: "underline" }}
+            >
               அறங்காவலர்கள் குழு
             </h3>
             {/* <div className="row adminItems">
@@ -62,12 +66,16 @@ const Officers = () => {
                       borderRadius: "10px",
                     }}
                   >
-                    <div className="border">
+                    <div
+                      style={{
+                        height: "400px",
+                      }}
+                    >
                       <img
                         src={item?.filepath ? item.filepath : UserImage}
                         style={{
                           borderRadius: "10px 10px 0px 0px",
-                          height: "400px",
+                          height: "100%",
                           width: "100%",
                         }}
                       />
@@ -90,22 +98,6 @@ const Officers = () => {
                           <p>தொலைபேசி எண்: {item.phone}</p>
                         </div>
                       </div>
-                      {/* <div>
-                        <div
-                          style={{
-                            fontWeight: 600,
-                            color: "#894c5c",
-                            cursor: "pointer",
-                            textAlign: "right",
-                          }}
-                          // onClick={() =>
-                          //   navigate(`/history/script/details/${item.id}`)
-                          // }
-                          // to={`/articals/${item.id}`}
-                        >
-                          மேலும்..
-                        </div>
-                      </div> */}
                     </div>
                   </div>
                 </div>

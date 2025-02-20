@@ -40,7 +40,7 @@ const Gridcomponents = () => {
                   style={{
                     backgroundImage: `url(${item.filepath.replace(/\\/g, '/')})`,
                     backgroundSize: 'cover',
-                    backgroundPosition: 'center',
+                    backgroundPosition: 'top',
                     height: '550px',
                   }}
                 >

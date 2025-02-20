@@ -10,7 +10,8 @@ import Loader from "../../components/loader";
 // import Tittle from "../../layout/tittle/tittle";
 import "../../styles/global.css";
 import BreadcrumbComponent from "../../components/common/Breadcrumb";
-import Events from "./events";
+// import Events from "./events";
+import DefaultImage from "../../assets/eventsbg.jpg";
 
 const EventId = () => {
   const { id } = useParams<EventParams>();
@@ -31,6 +32,10 @@ const EventId = () => {
     fetchEventData();
   }, [dispatch, id]);
 
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+
   return (
     <>
       <div
@@ -46,7 +51,7 @@ const EventId = () => {
               <div className="col-lg-12">
                 <div className="eventsbgclassName">
                   <img
-                    src={eventiddata?.media}
+                    src={eventiddata.media ? eventiddata.media : DefaultImage}
                     alt={eventiddata?.title || "Event"}
                   />
                 </div>

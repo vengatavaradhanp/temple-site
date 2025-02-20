@@ -5,11 +5,12 @@ import { contactDetails } from "../../services/contactContent";
 // import Header from "../../layout/header/header";
 // import Footer from "../../layout/footer/footer";
 import { Notice } from "../../types/types";
-import UserImage from "../../assets/profile-circle.svg";
+// import UserImage from "../../assets/profile-circle.svg";
 import Loader from "../../components/loader";
 import BreadcrumbComponent from "../../components/common/Breadcrumb";
-import CommonService from "../../utils/common";
+// import CommonService from "../../utils/common";
 // import Tittle from "../../layout/tittle/tittle";
+import DefaultImage from "../../assets/eventsbg.jpg";
 
 const Contact = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -65,7 +66,7 @@ const Contact = () => {
                   >
                     <div>
                       <img
-                        src={item?.filepath ? item.filepath : UserImage}
+                        src={item?.filepath ? item.filepath : DefaultImage}
                         style={{
                           borderRadius: "10px 10px 0px 0px",
                           height: "400px",
