@@ -30,7 +30,7 @@ const Articals = () => {
           <div className="row">
             {" "}
             {articalsdata.slice(0, 2).map((item: Article, index: number) => (
-              <div className="col-6" style={{ padding: "20px" }}>
+              <div className="col-lg-6 col-sm-12" style={{ padding: "20px" }}>
                 <div
                   style={{
                     boxShadow:

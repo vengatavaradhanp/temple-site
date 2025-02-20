@@ -161,7 +161,7 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className="col-md-4 col-sm-4 col-xs-12">
+            <div className="col-lg-4 col-sm-6 col-xs-12">
               <div className="single_footer single_footer_address">
                 <h4>Subscribe today</h4>
                 <div className="signup_form">

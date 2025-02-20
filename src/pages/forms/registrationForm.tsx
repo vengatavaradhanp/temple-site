@@ -166,9 +166,7 @@ const RegistrationForm: React.FunctionComponent = () => {
         ref={formRef}
       >
         <div
-          className="form-group full-width"
-          style={{ width: "50%", marginLeft: "auto", marginRight: "auto" }}
-        >
+          className="form-group full-width mrgFun">
           <label htmlFor="event">நிகழ்வைத் தேர்ந்தெடுக்கவும்:</label>
           <select
             id="event"
@@ -196,9 +194,7 @@ const RegistrationForm: React.FunctionComponent = () => {
           event === "Anniversary") && (
           <div
             id="marrigeFields"
-            className="form-grid"
-            style={{ width: "50%", marginLeft: "auto", marginRight: "auto" }}
-          >
+            className="form-grid mrgFun">
             <div className="row">
               <div className="col-md-6 form-group">
                 <label htmlFor="date">தேதி:</label>
@@ -446,9 +442,7 @@ const RegistrationForm: React.FunctionComponent = () => {
         {event === "birthday" && (
           <div
             id="birthdayFields"
-            className="form-grid"
-            style={{ width: "50%", marginLeft: "auto", marginRight: "auto" }}
-          >
+            className="form-grid mrgFun">
             <div className="row">
               <div className="col-md-6 form-group">
                 <label htmlFor="birthdayDate">பிறந்தநாள் தேதி:</label>

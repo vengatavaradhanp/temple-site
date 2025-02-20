@@ -349,7 +349,7 @@ export default Index;
 //                 <div className="row">
 //                   {vip.map((item: Article) => (
 //                     <div
-//                       className="col-6"
+//                       className="col-lg-6 col-sm-12"
 //                       style={{ padding: "10px" }}
 //                       key={item.id}
 //                     >
