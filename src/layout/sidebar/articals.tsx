@@ -7,6 +7,7 @@ import { Article } from "../../types/types";
 import { articalContent } from "../../services/articalsContent";
 import CommonService from "../../utils/common";
 import { useNavigate } from "react-router-dom";
+import DefaultImage from '../../assets/defaultImage.jpg';
 
 const Articals = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -40,7 +41,7 @@ const Articals = () => {
                 >
                   <div>
                     <img
-                      src={item.media}
+                      src={item.media ? item.media : DefaultImage}
                       style={{ borderRadius: "10px 10px 0px 0px" }}
                     />
                   </div>

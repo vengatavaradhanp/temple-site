@@ -8,6 +8,7 @@ import { AppDispatch } from "../../_main/store";
 import { useDispatch, useSelector } from "react-redux";
 import { getHistoryDetails } from "../../services/historyDetailsSlice";
 import { MenuItems } from "../../utils/constants";
+import DefaultImage from '../../assets/defaultImage.jpg';
 
 const HistoryDetailsComponent = () => {
   const { type, id } = useParams(); // Get dynamic ID from URL
@@ -61,7 +62,7 @@ const HistoryDetailsComponent = () => {
       {/* IMAGE BANNER */}
       <div style={{ height: "400px" }}>
         <img
-          src={historyDetails?.filepath || null}
+          src={historyDetails.filepath ? historyDetails.filepath : DefaultImage}
           style={{ width: "100%", height: "100%" }}
         />
       </div>

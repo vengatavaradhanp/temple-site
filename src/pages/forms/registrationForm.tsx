@@ -148,6 +148,8 @@ const RegistrationForm: React.FunctionComponent = () => {
       }
       return;
     }
+
+    
     // படிவ சமர்ப்பிப்பு தர்க்கம் இங்கே சேர்க்கவும்
     console.log(formData);
   };
@@ -166,7 +168,9 @@ const RegistrationForm: React.FunctionComponent = () => {
         ref={formRef}
       >
         <div
-          className="form-group full-width mrgFun">
+          className="form-group full-width mrgFun"
+          style={{ padding: "0px 15px 20px 15px" }}
+        >
           <label htmlFor="event">நிகழ்வைத் தேர்ந்தெடுக்கவும்:</label>
           <select
             id="event"
@@ -192,9 +196,7 @@ const RegistrationForm: React.FunctionComponent = () => {
         {(event === "marrige" ||
           event === "Engagement" ||
           event === "Anniversary") && (
-          <div
-            id="marrigeFields"
-            className="form-grid mrgFun">
+          <div id="marrigeFields" className="form-grid mrgFun">
             <div className="row">
               <div className="col-md-6 form-group">
                 <label htmlFor="date">தேதி:</label>
@@ -440,9 +442,7 @@ const RegistrationForm: React.FunctionComponent = () => {
         )}
 
         {event === "birthday" && (
-          <div
-            id="birthdayFields"
-            className="form-grid mrgFun">
+          <div id="birthdayFields" className="form-grid mrgFun">
             <div className="row">
               <div className="col-md-6 form-group">
                 <label htmlFor="birthdayDate">Birthday Date:</label>
@@ -608,6 +608,12 @@ const RegistrationForm: React.FunctionComponent = () => {
                 </button>
               </div>
             </div>
+          </div>
+        )}
+
+        {(event === "" && 
+        <div id="marrigeFields" className="form-grid mrgFun" style={{minHeight: '200px'}}>
+            
           </div>
         )}
       </form>

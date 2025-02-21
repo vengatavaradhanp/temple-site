@@ -34,5 +34,8 @@ export const REGISTRATION_ROUTE = "/registration";
 // APIURL
 export const API_URL = "http://192.168.1.65:8000";
 
+export const AUTH_TOKEN =
+  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyQGV4YW1wbGUuY29tIiwiZXhwIjoxNzQwMTQxNDk0fQ.BE2igSVOhzF8hxRRx5Oqikvhj6GZ-JrBMI2qcZeSIOM";
+
 //regex
 export const REGEXBANK = /Bank:\s*(.+?),\s*SB A\/c:\s*(\d+)\s*IFSC:\s*(\S+)/;

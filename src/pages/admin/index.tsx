@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import JoditEditor from "jodit-react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../../_main/store";
-import { createItem, updateItem } from "../../services/listPath";
-import TamilVoiceEditor from "../../components/voice";
+import { createFile, createItem, updateItem } from "../../services/listPath";
+// import TamilVoiceEditor from "../../components/voice";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -24,10 +24,11 @@ const Index = () => {
     time: location.state?.item?.time || "",
     author: location.state?.item?.author || "",
     location: location.state?.item?.location || "",
-    media: location.state?.item?.media || "",
+    filepath: location.state?.item?.filepath || "",
   });
-  console.log("Form Data:", articleData);
-
+  
+  const fileResponse = useSelector((state) => state)
+console.log("===========================", fileResponse);
   const editor = useRef(null);
 
   const handleChange = (
@@ -43,14 +44,17 @@ const Index = () => {
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
+      const formData = new FormData()
+      formData.append("file", file);
+      formData.append("type", "article");
       setImageFile(file); // Store the actual file
-      setImagePreview(URL.createObjectURL(file)); // Create preview URL
-
-      console.log("Selected Image:", {
-        name: file.name,
-        size: file.size,
-        type: file.type,
-      });
+      // setImagePreview(URL.createObjectURL(file)); // Create preview URL
+      dispatch(createFile(formData));
+      // console.log("Selected Image:", {
+      //   name: file.name,
+      //   size: file.size,
+      //   type: file.type,
+      // });
     }
   };
 
@@ -62,7 +66,7 @@ const Index = () => {
     formData.append("title", articleData.title);
     formData.append("body", articleData.body);
     formData.append("type", articleData.type);
-    formData.append("media", articleData.media);
+    formData.append("filepath", articleData.filepath);
     formData.append("date", articleData.date);
     formData.append("time", articleData.time);
     formData.append("author", articleData.author);
@@ -75,7 +79,8 @@ const Index = () => {
     if (articleData.id) {
       await dispatch(updateItem({ ...articleData, filepath: imageFile }));
     } else {
-      await dispatch(createItem(formData));
+      articleData["filepath"] = "Screenshot_2025-01-22_113207.png";
+      await dispatch(createItem(articleData));
     }
 
     navigate("/admin/main");
@@ -173,14 +178,18 @@ const Index = () => {
             <JoditEditor
               // ref={editor}
               value={articleData.body}
-              // onChange={(newContent) =>
-              //   setArticleData((prev) => ({ ...prev, body: newContent }))
-              // }
-              config={{
-                speechRecognize: {
-                  lang: "ta-IN",
-                },
+              onChange={(newContent) => {
+                  
+                 setArticleData((prev) => ({
+                   ...prev,
+                   "body": newContent,
+                 }));
               }}
+              // config={{
+              //   speechRecognize: {
+              //     lang: "ta-IN",
+              //   },
+              // }}
               className="mb-4"
             />
             {/* <TamilVoiceEditor/> */}
